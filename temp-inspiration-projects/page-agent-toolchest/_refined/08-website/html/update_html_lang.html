@@ -1,0 +1,6 @@
+const updateHtmlLang = () => {
+				const lang = localStorage.getItem('i18nextLng') || navigator.language || 'zh-CN'
+				document.documentElement.lang = lang
+				const el = document.getElementById('sk-text')
+				if (el) el.textContent = lang.startsWith('zh') ? '加载中...' : 'Loading...'
+			}

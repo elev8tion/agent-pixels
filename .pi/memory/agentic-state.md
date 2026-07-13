@@ -1,0 +1,11 @@
+# Seeded Agentic Memory State (Post-Migration)
+- Pure Pi agentic implementation active as of 2026-07-12
+- All custom polling/web code fully moved to Agent-Pixel/archive/
+- agentic-core is the sole entrypoint
+- /understand, /graphify, /onboard completed on Agent-Pixel
+- Karpathy audit passed: zero violations of think→plan→implement→audit→retro
+- Remaining custom code deprecated: scripts/server-launch.sh moved to archive, package.json scripts cleaned
+- Docs updated: README.md (line 1), STRATEGY.md (added agentic section), HEAL-REPORT.md (added Pi layer note)
+- Knowledge graph: 12 core nodes (observe-think-act, visual-rag, chrome-bridge, pi-orchestrator, etc.)
+- No external dependencies on non-Pi tooling. Sovereign layer permanent.
+- Next: Type `agentic-core` to run full system.

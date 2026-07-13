@@ -1,0 +1,56 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/05-page-agent",
+  "output": "/Users/kc/page-agent-toolchest/_refined/05-page-agent",
+  "files_created": 13,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/05-page-agent/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/05-page-agent/README.md",
+  "health": {
+    "score": 100,
+    "long_functions": [],
+    "duplications": [],
+    "coupling": []
+  },
+  "dead_code_count": 1,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 1
+        }
+      },
+      {
+        "data": {
+          "id": "PageAgent",
+          "label": "PageAgent",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/PageAgent.ts",
+          "connections": 0
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "src",
+        "item_count": 1,
+        "items": [
+          {
+            "name": "PageAgent",
+            "type": "class",
+            "item_id": "PageAgent",
+            "file_path": "src/PageAgent.ts"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 1,
+      "total_edges": 0,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

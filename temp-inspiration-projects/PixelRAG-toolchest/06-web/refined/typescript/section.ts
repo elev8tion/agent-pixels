@@ -1,0 +1,4 @@
+function Section({
+  title,
+  children,
+}: {

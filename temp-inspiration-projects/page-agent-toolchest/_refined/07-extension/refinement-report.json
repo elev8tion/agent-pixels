@@ -1,0 +1,1263 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/07-extension",
+  "output": "/Users/kc/page-agent-toolchest/_refined/07-extension",
+  "files_created": 179,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/07-extension/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/07-extension/README.md",
+  "health": {
+    "score": 54,
+    "long_functions": [
+      {
+        "item_id": "exposeAgentToPage",
+        "name": "exposeAgentToPage",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/entrypoints/content.ts",
+        "line_count": 126
+      },
+      {
+        "item_id": "useAgent",
+        "name": "useAgent",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/agent/useAgent.ts",
+        "line_count": 119
+      },
+      {
+        "item_id": "App@App",
+        "name": "App",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/entrypoints/sidepanel/App.tsx",
+        "line_count": 112
+      },
+      {
+        "item_id": "initPageController",
+        "name": "initPageController",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/agent/RemotePageController.content.ts",
+        "line_count": 99
+      },
+      {
+        "item_id": "App",
+        "name": "App",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/entrypoints/hub/App.tsx",
+        "line_count": 95
+      },
+      {
+        "item_id": "EmptyState",
+        "name": "EmptyState",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/components/misc.tsx",
+        "line_count": 60
+      },
+      {
+        "item_id": "createTabTools",
+        "name": "createTabTools",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/agent/tabTools.ts",
+        "line_count": 51
+      },
+      {
+        "item_id": "HubConfig",
+        "name": "HubConfig",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/entrypoints/hub/App.tsx",
+        "line_count": 45
+      },
+      {
+        "item_id": "getMethodName",
+        "name": "getMethodName",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/agent/RemotePageController.content.ts",
+        "line_count": 30
+      },
+      {
+        "item_id": "waitUntil",
+        "name": "waitUntil",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/agent/TabsController.ts",
+        "line_count": 27
+      },
+      {
+        "item_id": "isContentScriptAllowed",
+        "name": "isContentScriptAllowed",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/agent/RemotePageController.ts",
+        "line_count": 18
+      },
+      {
+        "item_id": "TypingAnimation",
+        "name": "TypingAnimation",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/components/ui/typing-animation.tsx",
+        "line_count": 17
+      },
+      {
+        "item_id": "downloadHistoryExport",
+        "name": "downloadHistoryExport",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/lib/history-export.ts",
+        "line_count": 17
+      },
+      {
+        "item_id": "openOrFocusHubTab",
+        "name": "openOrFocusHubTab",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/entrypoints/background.ts",
+        "line_count": 14
+      },
+      {
+        "item_id": "saveSession",
+        "name": "saveSession",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/lib/db.ts",
+        "line_count": 12
+      },
+      {
+        "item_id": "extractPrompt",
+        "name": "extractPrompt",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/components/cards.tsx",
+        "line_count": 11
+      },
+      {
+        "item_id": "getDB",
+        "name": "getDB",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/lib/db.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "formatTimestampForFilename",
+        "name": "formatTimestampForFilename",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/lib/history-export.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "timeAgo",
+        "name": "timeAgo",
+        "file": "/Users/kc/page-agent-toolchest/07-extension/src/components/HistoryList.tsx",
+        "line_count": 10
+      }
+    ],
+    "duplications": [
+      {
+        "item_a": "syncDarkMode",
+        "item_b": "syncDarkMode",
+        "item_a_id": "syncDarkMode",
+        "item_b_id": "syncDarkMode@main",
+        "similarity": 1.0
+      },
+      {
+        "item_a": "DB_NAME",
+        "item_b": "DB_VERSION",
+        "item_a_id": "DB_NAME",
+        "item_b_id": "DB_VERSION",
+        "similarity": 0.773
+      },
+      {
+        "item_a": "Card",
+        "item_b": "CardHeader",
+        "item_a_id": "Card",
+        "item_b_id": "CardHeader",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "CardTitle",
+        "item_a_id": "Card",
+        "item_b_id": "CardTitle",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "CardDescription",
+        "item_a_id": "Card",
+        "item_b_id": "CardDescription",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "CardAction",
+        "item_a_id": "Card",
+        "item_b_id": "CardAction",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "CardContent",
+        "item_a_id": "Card",
+        "item_b_id": "CardContent",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "CardFooter",
+        "item_a_id": "Card",
+        "item_b_id": "CardFooter",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "FieldGroup",
+        "item_a_id": "Card",
+        "item_b_id": "FieldGroup",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "FieldContent",
+        "item_a_id": "Card",
+        "item_b_id": "FieldContent",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "FieldTitle",
+        "item_a_id": "Card",
+        "item_b_id": "FieldTitle",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "InputGroup",
+        "item_a_id": "Card",
+        "item_b_id": "InputGroup",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "ItemGroup",
+        "item_a_id": "Card",
+        "item_b_id": "ItemGroup",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "ItemContent",
+        "item_a_id": "Card",
+        "item_b_id": "ItemContent",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "ItemTitle",
+        "item_a_id": "Card",
+        "item_b_id": "ItemTitle",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "ItemActions",
+        "item_a_id": "Card",
+        "item_b_id": "ItemActions",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "ItemHeader",
+        "item_a_id": "Card",
+        "item_b_id": "ItemHeader",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "Card",
+        "item_b": "ItemFooter",
+        "item_a_id": "Card",
+        "item_b_id": "ItemFooter",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "CardHeader",
+        "item_b": "CardTitle",
+        "item_a_id": "CardHeader",
+        "item_b_id": "CardTitle",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "CardHeader",
+        "item_b": "CardDescription",
+        "item_a_id": "CardHeader",
+        "item_b_id": "CardDescription",
+        "similarity": 0.75
+      }
+    ],
+    "coupling": [
+      {
+        "item_id": "TabsController",
+        "name": "TabsController",
+        "score": 2,
+        "forward": 0,
+        "reverse": 2
+      },
+      {
+        "item_id": "MotionOverlay",
+        "name": "MotionOverlay",
+        "score": 2,
+        "forward": 0,
+        "reverse": 2
+      },
+      {
+        "item_id": "App@App",
+        "name": "App",
+        "score": 2,
+        "forward": 2,
+        "reverse": 0
+      },
+      {
+        "item_id": "MultiPageAgent",
+        "name": "MultiPageAgent",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "RemotePageController",
+        "name": "RemotePageController",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "createTabTools",
+        "name": "createTabTools",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "Logo",
+        "name": "Logo",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "exposeAgentToPage",
+        "name": "exposeAgentToPage",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "App",
+        "name": "App",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      }
+    ]
+  },
+  "dead_code_count": 112,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 116
+        }
+      },
+      {
+        "data": {
+          "id": "TabsController",
+          "label": "TabsController",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/agent/TabsController.ts",
+          "connections": 2
+        }
+      },
+      {
+        "data": {
+          "id": "MotionOverlay",
+          "label": "MotionOverlay",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/misc.tsx",
+          "connections": 2
+        }
+      },
+      {
+        "data": {
+          "id": "App@App",
+          "label": "App",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/entrypoints/sidepanel/App.tsx",
+          "connections": 2
+        }
+      },
+      {
+        "data": {
+          "id": "MultiPageAgent",
+          "label": "MultiPageAgent",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/agent/MultiPageAgent.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "RemotePageController",
+          "label": "RemotePageController",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/agent/RemotePageController.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "createTabTools",
+          "label": "createTabTools",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/agent/tabTools.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "Logo",
+          "label": "Logo",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/misc.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "exposeAgentToPage",
+          "label": "exposeAgentToPage",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/entrypoints/content.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "App",
+          "label": "App",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/entrypoints/hub/App.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "detectLanguage",
+          "label": "detectLanguage",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/agent/MultiPageAgent.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "handlePageControlMessage",
+          "label": "handlePageControlMessage",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/agent/RemotePageController.background.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "initPageController",
+          "label": "initPageController",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/agent/RemotePageController.content.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "getMethodName",
+          "label": "getMethodName",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/agent/RemotePageController.content.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "PREFIX",
+          "label": "PREFIX",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/agent/RemotePageController.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "sendMessage",
+          "label": "sendMessage",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/agent/RemotePageController.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "dir-src-more",
+          "label": "+101 more",
+          "type": "overflow",
+          "parent": "dir-src",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "source": "RemotePageController",
+          "target": "TabsController",
+          "edgeType": "type_reference",
+          "label": "TabsController"
+        }
+      },
+      {
+        "data": {
+          "source": "createTabTools",
+          "target": "TabsController",
+          "edgeType": "type_reference",
+          "label": "TabsController"
+        }
+      },
+      {
+        "data": {
+          "source": "exposeAgentToPage",
+          "target": "MultiPageAgent",
+          "edgeType": "type_reference",
+          "label": "MultiPageAgent"
+        }
+      },
+      {
+        "data": {
+          "source": "App",
+          "target": "MotionOverlay",
+          "edgeType": "import",
+          "label": "MotionOverlay"
+        }
+      },
+      {
+        "data": {
+          "source": "App@App",
+          "target": "Logo",
+          "edgeType": "import",
+          "label": "Logo"
+        }
+      },
+      {
+        "data": {
+          "source": "App@App",
+          "target": "MotionOverlay",
+          "edgeType": "import",
+          "label": "MotionOverlay"
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "src",
+        "item_count": 116,
+        "items": [
+          {
+            "name": "ActionIcon",
+            "type": "function",
+            "item_id": "ActionIcon",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "ActivityCard",
+            "type": "function",
+            "item_id": "ActivityCard",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "App",
+            "type": "function",
+            "item_id": "App",
+            "file_path": "src/entrypoints/hub/App.tsx"
+          },
+          {
+            "name": "App",
+            "type": "function",
+            "item_id": "App@App",
+            "file_path": "src/entrypoints/sidepanel/App.tsx"
+          },
+          {
+            "name": "Button",
+            "type": "function",
+            "item_id": "Button",
+            "file_path": "src/components/ui/button.tsx"
+          },
+          {
+            "name": "Card",
+            "type": "function",
+            "item_id": "Card",
+            "file_path": "src/components/ui/card.tsx"
+          },
+          {
+            "name": "CardAction",
+            "type": "function",
+            "item_id": "CardAction",
+            "file_path": "src/components/ui/card.tsx"
+          },
+          {
+            "name": "CardContent",
+            "type": "function",
+            "item_id": "CardContent",
+            "file_path": "src/components/ui/card.tsx"
+          },
+          {
+            "name": "CardDescription",
+            "type": "function",
+            "item_id": "CardDescription",
+            "file_path": "src/components/ui/card.tsx"
+          },
+          {
+            "name": "CardFooter",
+            "type": "function",
+            "item_id": "CardFooter",
+            "file_path": "src/components/ui/card.tsx"
+          },
+          {
+            "name": "CardHeader",
+            "type": "function",
+            "item_id": "CardHeader",
+            "file_path": "src/components/ui/card.tsx"
+          },
+          {
+            "name": "CardTitle",
+            "type": "function",
+            "item_id": "CardTitle",
+            "file_path": "src/components/ui/card.tsx"
+          },
+          {
+            "name": "ConfigPanel",
+            "type": "function",
+            "item_id": "ConfigPanel",
+            "file_path": "src/components/ConfigPanel.tsx"
+          },
+          {
+            "name": "CopyButton",
+            "type": "function",
+            "item_id": "CopyButton",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "DB_NAME",
+            "type": "component",
+            "item_id": "DB_NAME",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "DB_VERSION",
+            "type": "component",
+            "item_id": "DB_VERSION",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "DEBUG_PREFIX",
+            "type": "component",
+            "item_id": "DEBUG_PREFIX",
+            "file_path": "src/entrypoints/content.ts"
+          },
+          {
+            "name": "EmptyState",
+            "type": "function",
+            "item_id": "EmptyState",
+            "file_path": "src/components/misc.tsx"
+          },
+          {
+            "name": "ErrorBoundary",
+            "type": "class",
+            "item_id": "ErrorBoundary",
+            "file_path": "src/components/ErrorBoundary.tsx"
+          },
+          {
+            "name": "ErrorCard",
+            "type": "function",
+            "item_id": "ErrorCard",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "EventCard",
+            "type": "function",
+            "item_id": "EventCard",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "Field",
+            "type": "function",
+            "item_id": "Field",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldContent",
+            "type": "function",
+            "item_id": "FieldContent",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldDescription",
+            "type": "function",
+            "item_id": "FieldDescription",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldError",
+            "type": "function",
+            "item_id": "FieldError",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldGroup",
+            "type": "function",
+            "item_id": "FieldGroup",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldLabel",
+            "type": "function",
+            "item_id": "FieldLabel",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldLegend",
+            "type": "function",
+            "item_id": "FieldLegend",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldSeparator",
+            "type": "function",
+            "item_id": "FieldSeparator",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldSet",
+            "type": "function",
+            "item_id": "FieldSet",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "FieldTitle",
+            "type": "function",
+            "item_id": "FieldTitle",
+            "file_path": "src/components/ui/field.tsx"
+          },
+          {
+            "name": "HistoryDetail",
+            "type": "function",
+            "item_id": "HistoryDetail",
+            "file_path": "src/components/HistoryDetail.tsx"
+          },
+          {
+            "name": "HistoryList",
+            "type": "function",
+            "item_id": "HistoryList",
+            "file_path": "src/components/HistoryList.tsx"
+          },
+          {
+            "name": "HoverCard",
+            "type": "function",
+            "item_id": "HoverCard",
+            "file_path": "src/components/ui/hover-card.tsx"
+          },
+          {
+            "name": "HoverCardContent",
+            "type": "function",
+            "item_id": "HoverCardContent",
+            "file_path": "src/components/ui/hover-card.tsx"
+          },
+          {
+            "name": "HoverCardTrigger",
+            "type": "function",
+            "item_id": "HoverCardTrigger",
+            "file_path": "src/components/ui/hover-card.tsx"
+          },
+          {
+            "name": "HubConfig",
+            "type": "function",
+            "item_id": "HubConfig",
+            "file_path": "src/entrypoints/hub/App.tsx"
+          },
+          {
+            "name": "HubWs",
+            "type": "class",
+            "item_id": "HubWs",
+            "file_path": "src/entrypoints/hub/hub-ws.ts"
+          },
+          {
+            "name": "Input",
+            "type": "function",
+            "item_id": "Input",
+            "file_path": "src/components/ui/input.tsx"
+          },
+          {
+            "name": "InputGroup",
+            "type": "function",
+            "item_id": "InputGroup",
+            "file_path": "src/components/ui/input-group.tsx"
+          },
+          {
+            "name": "InputGroupAddon",
+            "type": "function",
+            "item_id": "InputGroupAddon",
+            "file_path": "src/components/ui/input-group.tsx"
+          },
+          {
+            "name": "InputGroupButton",
+            "type": "function",
+            "item_id": "InputGroupButton",
+            "file_path": "src/components/ui/input-group.tsx"
+          },
+          {
+            "name": "InputGroupInput",
+            "type": "function",
+            "item_id": "InputGroupInput",
+            "file_path": "src/components/ui/input-group.tsx"
+          },
+          {
+            "name": "InputGroupText",
+            "type": "function",
+            "item_id": "InputGroupText",
+            "file_path": "src/components/ui/input-group.tsx"
+          },
+          {
+            "name": "InputGroupTextarea",
+            "type": "function",
+            "item_id": "InputGroupTextarea",
+            "file_path": "src/components/ui/input-group.tsx"
+          },
+          {
+            "name": "Item",
+            "type": "function",
+            "item_id": "Item",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemActions",
+            "type": "function",
+            "item_id": "ItemActions",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemContent",
+            "type": "function",
+            "item_id": "ItemContent",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemDescription",
+            "type": "function",
+            "item_id": "ItemDescription",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemFooter",
+            "type": "function",
+            "item_id": "ItemFooter",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemGroup",
+            "type": "function",
+            "item_id": "ItemGroup",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemHeader",
+            "type": "function",
+            "item_id": "ItemHeader",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemMedia",
+            "type": "function",
+            "item_id": "ItemMedia",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemSeparator",
+            "type": "function",
+            "item_id": "ItemSeparator",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "ItemTitle",
+            "type": "function",
+            "item_id": "ItemTitle",
+            "file_path": "src/components/ui/item.tsx"
+          },
+          {
+            "name": "Label",
+            "type": "function",
+            "item_id": "Label",
+            "file_path": "src/components/ui/label.tsx"
+          },
+          {
+            "name": "Logo",
+            "type": "function",
+            "item_id": "Logo",
+            "file_path": "src/components/misc.tsx"
+          },
+          {
+            "name": "MotionOverlay",
+            "type": "function",
+            "item_id": "MotionOverlay",
+            "file_path": "src/components/misc.tsx"
+          },
+          {
+            "name": "MultiPageAgent",
+            "type": "class",
+            "item_id": "MultiPageAgent",
+            "file_path": "src/agent/MultiPageAgent.ts"
+          },
+          {
+            "name": "ObservationCard",
+            "type": "function",
+            "item_id": "ObservationCard",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "PREFIX",
+            "type": "component",
+            "item_id": "PREFIX",
+            "file_path": "src/agent/RemotePageController.ts"
+          },
+          {
+            "name": "PREFIX",
+            "type": "component",
+            "item_id": "PREFIX@TabsController.background",
+            "file_path": "src/agent/TabsController.background.ts"
+          },
+          {
+            "name": "PREFIX",
+            "type": "component",
+            "item_id": "PREFIX@TabsController",
+            "file_path": "src/agent/TabsController.ts"
+          },
+          {
+            "name": "ProtocolDocsCollapsible",
+            "type": "function",
+            "item_id": "ProtocolDocsCollapsible",
+            "file_path": "src/entrypoints/hub/App.tsx"
+          },
+          {
+            "name": "RawSection",
+            "type": "function",
+            "item_id": "RawSection",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "ReflectionItem",
+            "type": "function",
+            "item_id": "ReflectionItem",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "ReflectionSection",
+            "type": "function",
+            "item_id": "ReflectionSection",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "RemotePageController",
+            "type": "class",
+            "item_id": "RemotePageController",
+            "file_path": "src/agent/RemotePageController.ts"
+          },
+          {
+            "name": "ResultCard",
+            "type": "function",
+            "item_id": "ResultCard",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "RetryCard",
+            "type": "function",
+            "item_id": "RetryCard",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "Separator",
+            "type": "function",
+            "item_id": "Separator",
+            "file_path": "src/components/ui/separator.tsx"
+          },
+          {
+            "name": "Spinner",
+            "type": "function",
+            "item_id": "Spinner",
+            "file_path": "src/components/ui/spinner.tsx"
+          },
+          {
+            "name": "StatusDot",
+            "type": "function",
+            "item_id": "StatusDot",
+            "file_path": "src/components/misc.tsx"
+          },
+          {
+            "name": "StepCard",
+            "type": "function",
+            "item_id": "StepCard",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "Switch",
+            "type": "function",
+            "item_id": "Switch",
+            "file_path": "src/components/ui/switch.tsx"
+          },
+          {
+            "name": "TAB_GROUP_COLORS",
+            "type": "component",
+            "item_id": "TAB_GROUP_COLORS",
+            "file_path": "src/agent/TabsController.ts"
+          },
+          {
+            "name": "TabsController",
+            "type": "class",
+            "item_id": "TabsController",
+            "file_path": "src/agent/TabsController.ts"
+          },
+          {
+            "name": "Textarea",
+            "type": "function",
+            "item_id": "Textarea",
+            "file_path": "src/components/ui/textarea.tsx"
+          },
+          {
+            "name": "Toaster",
+            "type": "component",
+            "item_id": "Toaster",
+            "file_path": "src/components/ui/sonner.tsx"
+          },
+          {
+            "name": "TypingAnimation",
+            "type": "function",
+            "item_id": "TypingAnimation",
+            "file_path": "src/components/ui/typing-animation.tsx"
+          },
+          {
+            "name": "buildHistoryExportFilename",
+            "type": "function",
+            "item_id": "buildHistoryExportFilename",
+            "file_path": "src/lib/history-export.ts"
+          },
+          {
+            "name": "clearSessions",
+            "type": "function",
+            "item_id": "clearSessions",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "cn",
+            "type": "function",
+            "item_id": "cn",
+            "file_path": "src/lib/utils.ts"
+          },
+          {
+            "name": "createTabTools",
+            "type": "function",
+            "item_id": "createTabTools",
+            "file_path": "src/agent/tabTools.ts"
+          },
+          {
+            "name": "deleteSession",
+            "type": "function",
+            "item_id": "deleteSession",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "detectLanguage",
+            "type": "function",
+            "item_id": "detectLanguage",
+            "file_path": "src/agent/MultiPageAgent.ts"
+          },
+          {
+            "name": "downloadHistoryExport",
+            "type": "function",
+            "item_id": "downloadHistoryExport",
+            "file_path": "src/lib/history-export.ts"
+          },
+          {
+            "name": "exposeAgentToPage",
+            "type": "function",
+            "item_id": "exposeAgentToPage",
+            "file_path": "src/entrypoints/content.ts"
+          },
+          {
+            "name": "extractPrompt",
+            "type": "function",
+            "item_id": "extractPrompt",
+            "file_path": "src/components/cards.tsx"
+          },
+          {
+            "name": "formatTimestampForFilename",
+            "type": "function",
+            "item_id": "formatTimestampForFilename",
+            "file_path": "src/lib/history-export.ts"
+          },
+          {
+            "name": "getDB",
+            "type": "function",
+            "item_id": "getDB",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "getMethodName",
+            "type": "function",
+            "item_id": "getMethodName",
+            "file_path": "src/agent/RemotePageController.content.ts"
+          },
+          {
+            "name": "getOwnWindowId",
+            "type": "function",
+            "item_id": "getOwnWindowId",
+            "file_path": "src/agent/TabsController.ts"
+          },
+          {
+            "name": "getSession",
+            "type": "function",
+            "item_id": "getSession",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "handlePageControlMessage",
+            "type": "function",
+            "item_id": "handlePageControlMessage",
+            "file_path": "src/agent/RemotePageController.background.ts"
+          },
+          {
+            "name": "handleTabControlMessage",
+            "type": "function",
+            "item_id": "handleTabControlMessage",
+            "file_path": "src/agent/TabsController.background.ts"
+          },
+          {
+            "name": "initPageController",
+            "type": "function",
+            "item_id": "initPageController",
+            "file_path": "src/agent/RemotePageController.content.ts"
+          },
+          {
+            "name": "isContentScriptAllowed",
+            "type": "function",
+            "item_id": "isContentScriptAllowed",
+            "file_path": "src/agent/RemotePageController.ts"
+          },
+          {
+            "name": "isTestingEndpoint",
+            "type": "function",
+            "item_id": "isTestingEndpoint",
+            "file_path": "src/agent/constants.ts"
+          },
+          {
+            "name": "listSessions",
+            "type": "function",
+            "item_id": "listSessions",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "migrateLegacyEndpoint",
+            "type": "function",
+            "item_id": "migrateLegacyEndpoint",
+            "file_path": "src/agent/constants.ts"
+          },
+          {
+            "name": "openOrFocusHubTab",
+            "type": "function",
+            "item_id": "openOrFocusHubTab",
+            "file_path": "src/entrypoints/background.ts"
+          },
+          {
+            "name": "pad",
+            "type": "function",
+            "item_id": "pad",
+            "file_path": "src/lib/history-export.ts"
+          },
+          {
+            "name": "randomColor",
+            "type": "function",
+            "item_id": "randomColor",
+            "file_path": "src/agent/TabsController.ts"
+          },
+          {
+            "name": "resolveActiveTab",
+            "type": "function",
+            "item_id": "resolveActiveTab",
+            "file_path": "src/agent/TabsController.background.ts"
+          },
+          {
+            "name": "sanitizeTaskForFilename",
+            "type": "function",
+            "item_id": "sanitizeTaskForFilename",
+            "file_path": "src/lib/history-export.ts"
+          },
+          {
+            "name": "saveSession",
+            "type": "function",
+            "item_id": "saveSession",
+            "file_path": "src/lib/db.ts"
+          },
+          {
+            "name": "sendMessage",
+            "type": "function",
+            "item_id": "sendMessage",
+            "file_path": "src/agent/RemotePageController.ts"
+          },
+          {
+            "name": "sendMessage",
+            "type": "function",
+            "item_id": "sendMessage@TabsController",
+            "file_path": "src/agent/TabsController.ts"
+          },
+          {
+            "name": "serializeHistoryExport",
+            "type": "function",
+            "item_id": "serializeHistoryExport",
+            "file_path": "src/lib/history-export.ts"
+          },
+          {
+            "name": "syncDarkMode",
+            "type": "function",
+            "item_id": "syncDarkMode",
+            "file_path": "src/entrypoints/hub/main.tsx"
+          },
+          {
+            "name": "syncDarkMode",
+            "type": "function",
+            "item_id": "syncDarkMode@main",
+            "file_path": "src/entrypoints/sidepanel/main.tsx"
+          },
+          {
+            "name": "timeAgo",
+            "type": "function",
+            "item_id": "timeAgo",
+            "file_path": "src/components/HistoryList.tsx"
+          },
+          {
+            "name": "useAgent",
+            "type": "function",
+            "item_id": "useAgent",
+            "file_path": "src/agent/useAgent.ts"
+          },
+          {
+            "name": "useHubWs",
+            "type": "function",
+            "item_id": "useHubWs",
+            "file_path": "src/entrypoints/hub/hub-ws.ts"
+          },
+          {
+            "name": "waitUntil",
+            "type": "function",
+            "item_id": "waitUntil",
+            "file_path": "src/agent/TabsController.ts"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 116,
+      "total_edges": 6,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

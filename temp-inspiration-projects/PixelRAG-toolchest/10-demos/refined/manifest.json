@@ -1,0 +1,206 @@
+{
+  "version": "1.0",
+  "generator": "cleansed",
+  "generator_version": "1.0.0",
+  "generated": "2026-07-08T04:29:07.486016",
+  "source_directory": "/Users/kc/PixelRAG-toolchest/10-demos",
+  "output_directory": "/tmp/refine-10-demos",
+  "total_items": 15,
+  "raw_source_files": {
+    "count": 9,
+    "directory": "raw/",
+    "files": [
+      "raw/README.md",
+      "raw/agent_skill.py",
+      "raw/e2e/README.md",
+      "raw/e2e/pixelrag.yaml",
+      "raw/e2e/run.py",
+      "raw/quickstart.ipynb",
+      "raw/render/README.md",
+      "raw/render/run.py",
+      "raw/search_ui.html"
+    ]
+  },
+  "items": [
+    {
+      "name": "execute_pixelrag_search",
+      "qualified_name": "execute_pixelrag_search",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/agent_skill.py",
+      "source_line": 85,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "execute_web_fetch",
+      "qualified_name": "execute_web_fetch",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/agent_skill.py",
+      "source_line": 117,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "handle_tool_call",
+      "qualified_name": "handle_tool_call",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/agent_skill.py",
+      "source_line": 133,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "run_agent",
+      "qualified_name": "run_agent",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/agent_skill.py",
+      "source_line": 151,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "interactive",
+      "qualified_name": "interactive",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/agent_skill.py",
+      "source_line": 208,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "main",
+      "qualified_name": "main",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/agent_skill.py",
+      "source_line": 234,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "search",
+      "qualified_name": "search",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/e2e/run.py",
+      "source_line": 41,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "_generate_html_report",
+      "qualified_name": "_generate_html_report",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/e2e/run.py",
+      "source_line": 53,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "main",
+      "qualified_name": "main",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/e2e/run.py",
+      "source_line": 90,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "create_sample_html",
+      "qualified_name": "create_sample_html",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/render/run.py",
+      "source_line": 45,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "main",
+      "qualified_name": "main",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/render/run.py",
+      "source_line": 101,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "style_block_7",
+      "qualified_name": "style_block_7",
+      "type": "style_block",
+      "language": "html",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/search_ui.html",
+      "source_line": 7,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "script_block_68",
+      "qualified_name": "script_block_68",
+      "type": "script_block",
+      "language": "html",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/search_ui.html",
+      "source_line": 68,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "search",
+      "qualified_name": "script_block_68.search",
+      "type": "function",
+      "language": "html",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/search_ui.html",
+      "source_line": 76,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "elapsed",
+      "qualified_name": "script_block_68.elapsed",
+      "type": "function",
+      "language": "html",
+      "source_file": "/Users/kc/PixelRAG-toolchest/10-demos/search_ui.html",
+      "source_line": 101,
+      "is_valid": true,
+      "validation_error": null
+    }
+  ],
+  "files_created": [
+    "/tmp/refine-10-demos/python/execute_pixelrag_search.py",
+    "/tmp/refine-10-demos/python/execute_web_fetch.py",
+    "/tmp/refine-10-demos/python/handle_tool_call.py",
+    "/tmp/refine-10-demos/python/run_agent.py",
+    "/tmp/refine-10-demos/python/interactive.py",
+    "/tmp/refine-10-demos/python/main.py",
+    "/tmp/refine-10-demos/python/search.py",
+    "/tmp/refine-10-demos/python/_generate_html_report.py",
+    "/tmp/refine-10-demos/python/main.py",
+    "/tmp/refine-10-demos/python/create_sample_html.py",
+    "/tmp/refine-10-demos/python/main.py",
+    "/tmp/refine-10-demos/python/__init__.py",
+    "/tmp/refine-10-demos/requirements.txt",
+    "/tmp/refine-10-demos/html/style_block_7.html",
+    "/tmp/refine-10-demos/html/script_block_68.html",
+    "/tmp/refine-10-demos/html/search.html",
+    "/tmp/refine-10-demos/html/elapsed.html",
+    "/tmp/refine-10-demos/html/index.html",
+    "/tmp/refine-10-demos/raw/README.md",
+    "/tmp/refine-10-demos/raw/quickstart.ipynb",
+    "/tmp/refine-10-demos/raw/agent_skill.py",
+    "/tmp/refine-10-demos/raw/search_ui.html",
+    "/tmp/refine-10-demos/raw/render/run.py",
+    "/tmp/refine-10-demos/raw/render/README.md",
+    "/tmp/refine-10-demos/raw/e2e/run.py",
+    "/tmp/refine-10-demos/raw/e2e/README.md",
+    "/tmp/refine-10-demos/raw/e2e/pixelrag.yaml",
+    "/tmp/refine-10-demos/README.md"
+  ]
+}

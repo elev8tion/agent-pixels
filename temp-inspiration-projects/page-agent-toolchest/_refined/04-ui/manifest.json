@@ -1,0 +1,114 @@
+{
+  "version": "1.0",
+  "generator": "cleansed",
+  "generator_version": "1.0.0",
+  "generated": "2026-07-08T04:30:02.263321",
+  "source_directory": "/Users/kc/page-agent-toolchest/04-ui",
+  "output_directory": "/Users/kc/page-agent-toolchest/_refined/04-ui",
+  "total_items": 6,
+  "raw_source_files": {
+    "count": 13,
+    "directory": "raw/",
+    "files": [
+      "raw/README.md",
+      "raw/package.json",
+      "raw/src/env.d.ts",
+      "raw/src/i18n/index.ts",
+      "raw/src/i18n/locales.ts",
+      "raw/src/index.ts",
+      "raw/src/panel/Panel.module.css",
+      "raw/src/panel/Panel.ts",
+      "raw/src/panel/cards.ts",
+      "raw/src/panel/types.ts",
+      "raw/src/utils.ts",
+      "raw/tsconfig.json",
+      "raw/vite.config.js"
+    ]
+  },
+  "items": [
+    {
+      "name": "I18n",
+      "qualified_name": "I18n",
+      "type": "class",
+      "language": "typescript",
+      "source_file": "/Users/kc/page-agent-toolchest/04-ui/src/i18n/index.ts",
+      "source_line": 9,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "Panel",
+      "qualified_name": "Panel",
+      "type": "class",
+      "language": "typescript",
+      "source_file": "/Users/kc/page-agent-toolchest/04-ui/src/panel/Panel.ts",
+      "source_line": 30,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "createCard",
+      "qualified_name": "createCard",
+      "type": "function",
+      "language": "typescript",
+      "source_file": "/Users/kc/page-agent-toolchest/04-ui/src/panel/cards.ts",
+      "source_line": 18,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "createReflectionLines",
+      "qualified_name": "createReflectionLines",
+      "type": "function",
+      "language": "typescript",
+      "source_file": "/Users/kc/page-agent-toolchest/04-ui/src/panel/cards.ts",
+      "source_line": 36,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "truncate",
+      "qualified_name": "truncate",
+      "type": "function",
+      "language": "typescript",
+      "source_file": "/Users/kc/page-agent-toolchest/04-ui/src/utils.ts",
+      "source_line": 1,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "escapeHtml",
+      "qualified_name": "escapeHtml",
+      "type": "function",
+      "language": "typescript",
+      "source_file": "/Users/kc/page-agent-toolchest/04-ui/src/utils.ts",
+      "source_line": 11,
+      "is_valid": true,
+      "validation_error": null
+    }
+  ],
+  "files_created": [
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/typescript/i18n.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/typescript/panel.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/typescript/create_card.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/typescript/create_reflection_lines.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/typescript/truncate.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/typescript/escape_html.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/typescript/index.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/package.json",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/vite.config.js",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/README.md",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/package.json",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/tsconfig.json",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/env.d.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/utils.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/index.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/panel/Panel.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/panel/Panel.module.css",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/panel/types.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/panel/cards.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/i18n/locales.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/raw/src/i18n/index.ts",
+    "/Users/kc/page-agent-toolchest/_refined/04-ui/README.md"
+  ]
+}

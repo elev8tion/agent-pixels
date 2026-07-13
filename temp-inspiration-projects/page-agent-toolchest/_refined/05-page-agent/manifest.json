@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "generator": "cleansed",
+  "generator_version": "1.0.0",
+  "generated": "2026-07-08T04:30:02.282463",
+  "source_directory": "/Users/kc/page-agent-toolchest/05-page-agent",
+  "output_directory": "/Users/kc/page-agent-toolchest/_refined/05-page-agent",
+  "total_items": 1,
+  "raw_source_files": {
+    "count": 8,
+    "directory": "raw/",
+    "files": [
+      "raw/README.md",
+      "raw/package.json",
+      "raw/src/PageAgent.ts",
+      "raw/src/demo.ts",
+      "raw/src/env.d.ts",
+      "raw/tsconfig.json",
+      "raw/vite.config.js",
+      "raw/vite.iife.config.js"
+    ]
+  },
+  "items": [
+    {
+      "name": "PageAgent",
+      "qualified_name": "PageAgent",
+      "type": "class",
+      "language": "typescript",
+      "source_file": "/Users/kc/page-agent-toolchest/05-page-agent/src/PageAgent.ts",
+      "source_line": 13,
+      "is_valid": true,
+      "validation_error": null
+    }
+  ],
+  "files_created": [
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/typescript/page_agent.ts",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/typescript/index.ts",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/package.json",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/vite.iife.config.js",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/vite.config.js",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/README.md",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/package.json",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/tsconfig.json",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/src/demo.ts",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/src/PageAgent.ts",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/raw/src/env.d.ts",
+    "/Users/kc/page-agent-toolchest/_refined/05-page-agent/README.md"
+  ]
+}

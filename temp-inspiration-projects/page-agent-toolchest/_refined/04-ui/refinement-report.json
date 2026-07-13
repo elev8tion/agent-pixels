@@ -1,0 +1,159 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/04-ui",
+  "output": "/Users/kc/page-agent-toolchest/_refined/04-ui",
+  "files_created": 23,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/04-ui/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/04-ui/README.md",
+  "health": {
+    "score": 100,
+    "long_functions": [],
+    "duplications": [],
+    "coupling": [
+      {
+        "item_id": "I18n",
+        "name": "I18n",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "Panel",
+        "name": "Panel",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      }
+    ]
+  },
+  "dead_code_count": 5,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 6
+        }
+      },
+      {
+        "data": {
+          "id": "I18n",
+          "label": "I18n",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/i18n/index.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "Panel",
+          "label": "Panel",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/panel/Panel.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "createCard",
+          "label": "createCard",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/panel/cards.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "createReflectionLines",
+          "label": "createReflectionLines",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/panel/cards.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "truncate",
+          "label": "truncate",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/utils.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "escapeHtml",
+          "label": "escapeHtml",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/utils.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "source": "Panel",
+          "target": "I18n",
+          "edgeType": "type_reference",
+          "label": "I18n"
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "src",
+        "item_count": 6,
+        "items": [
+          {
+            "name": "I18n",
+            "type": "class",
+            "item_id": "I18n",
+            "file_path": "src/i18n/index.ts"
+          },
+          {
+            "name": "Panel",
+            "type": "class",
+            "item_id": "Panel",
+            "file_path": "src/panel/Panel.ts"
+          },
+          {
+            "name": "createCard",
+            "type": "function",
+            "item_id": "createCard",
+            "file_path": "src/panel/cards.ts"
+          },
+          {
+            "name": "createReflectionLines",
+            "type": "function",
+            "item_id": "createReflectionLines",
+            "file_path": "src/panel/cards.ts"
+          },
+          {
+            "name": "escapeHtml",
+            "type": "function",
+            "item_id": "escapeHtml",
+            "file_path": "src/utils.ts"
+          },
+          {
+            "name": "truncate",
+            "type": "function",
+            "item_id": "truncate",
+            "file_path": "src/utils.ts"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 6,
+      "total_edges": 1,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

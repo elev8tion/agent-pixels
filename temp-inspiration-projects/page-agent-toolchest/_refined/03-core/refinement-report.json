@@ -1,0 +1,496 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/03-core",
+  "output": "/Users/kc/page-agent-toolchest/_refined/03-core",
+  "files_created": 39,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/03-core/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/03-core/README.md",
+  "health": {
+    "score": 70,
+    "long_functions": [
+      {
+        "item_id": "normalizeResponse",
+        "name": "normalizeResponse",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/utils/autoFixer.ts",
+        "line_count": 101
+      },
+      {
+        "item_id": "validateAction",
+        "name": "validateAction",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/utils/autoFixer.ts",
+        "line_count": 39
+      },
+      {
+        "item_id": "fetchLlmsTxt",
+        "name": "fetchLlmsTxt",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/utils/index.ts",
+        "line_count": 33
+      },
+      {
+        "item_id": "agentResponse",
+        "name": "agentResponse",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/PageAgentCore.test.ts",
+        "line_count": 22
+      },
+      {
+        "item_id": "randomID",
+        "name": "randomID",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/utils/index.ts",
+        "line_count": 20
+      },
+      {
+        "item_id": "waitFor",
+        "name": "waitFor",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/utils/index.ts",
+        "line_count": 19
+      },
+      {
+        "item_id": "createPageController",
+        "name": "createPageController",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/PageAgentCore.test.ts",
+        "line_count": 18
+      },
+      {
+        "item_id": "onceActivity",
+        "name": "onceActivity",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/PageAgentCore.test.ts",
+        "line_count": 14
+      },
+      {
+        "item_id": "retrieveJsonFromString",
+        "name": "retrieveJsonFromString",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/utils/autoFixer.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "isExecutingTool",
+        "name": "isExecutingTool",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/PageAgentCore.test.ts",
+        "line_count": 10
+      },
+      {
+        "item_id": "safeJsonParse",
+        "name": "safeJsonParse",
+        "file": "/Users/kc/page-agent-toolchest/03-core/src/utils/autoFixer.ts",
+        "line_count": 10
+      }
+    ],
+    "duplications": [],
+    "coupling": [
+      {
+        "item_id": "PageAgentCore",
+        "name": "PageAgentCore",
+        "score": 6,
+        "forward": 4,
+        "reverse": 2
+      },
+      {
+        "item_id": "onceActivity",
+        "name": "onceActivity",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "startBlockedTask",
+        "name": "startBlockedTask",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "normalizeResponse",
+        "name": "normalizeResponse",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "uid",
+        "name": "uid",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "fetchLlmsTxt",
+        "name": "fetchLlmsTxt",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "suppress",
+        "name": "suppress",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      }
+    ]
+  },
+  "dead_code_count": 17,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 22
+        }
+      },
+      {
+        "data": {
+          "id": "PageAgentCore",
+          "label": "PageAgentCore",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.ts",
+          "connections": 6
+        }
+      },
+      {
+        "data": {
+          "id": "onceActivity",
+          "label": "onceActivity",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "startBlockedTask",
+          "label": "startBlockedTask",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "normalizeResponse",
+          "label": "normalizeResponse",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/utils/autoFixer.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "uid",
+          "label": "uid",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/utils/index.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "fetchLlmsTxt",
+          "label": "fetchLlmsTxt",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/utils/index.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "suppress",
+          "label": "suppress",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/utils/index.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "agentResponse",
+          "label": "agentResponse",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "createPageController",
+          "label": "createPageController",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "createAgent",
+          "label": "createAgent",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "createFetchMock",
+          "label": "createFetchMock",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "isExecutingTool",
+          "label": "isExecutingTool",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "doneResponse",
+          "label": "doneResponse",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "waitResponse",
+          "label": "waitResponse",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/PageAgentCore.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "tool",
+          "label": "tool",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/tools/index.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "dir-src-more",
+          "label": "+7 more",
+          "type": "overflow",
+          "parent": "dir-src",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "source": "onceActivity",
+          "target": "PageAgentCore",
+          "edgeType": "type_reference",
+          "label": "PageAgentCore"
+        }
+      },
+      {
+        "data": {
+          "source": "startBlockedTask",
+          "target": "PageAgentCore",
+          "edgeType": "type_reference",
+          "label": "PageAgentCore"
+        }
+      },
+      {
+        "data": {
+          "source": "PageAgentCore",
+          "target": "fetchLlmsTxt",
+          "edgeType": "import",
+          "label": "fetchLlmsTxt"
+        }
+      },
+      {
+        "data": {
+          "source": "PageAgentCore",
+          "target": "normalizeResponse",
+          "edgeType": "import",
+          "label": "normalizeResponse"
+        }
+      },
+      {
+        "data": {
+          "source": "PageAgentCore",
+          "target": "suppress",
+          "edgeType": "import",
+          "label": "suppress"
+        }
+      },
+      {
+        "data": {
+          "source": "PageAgentCore",
+          "target": "uid",
+          "edgeType": "import",
+          "label": "uid"
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "src",
+        "item_count": 22,
+        "items": [
+          {
+            "name": "PageAgentCore",
+            "type": "class",
+            "item_id": "PageAgentCore",
+            "file_path": "src/PageAgentCore.ts"
+          },
+          {
+            "name": "agentResponse",
+            "type": "function",
+            "item_id": "agentResponse",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "assert",
+            "type": "function",
+            "item_id": "assert",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "createAgent",
+            "type": "function",
+            "item_id": "createAgent",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "createFetchMock",
+            "type": "function",
+            "item_id": "createFetchMock",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "createPageController",
+            "type": "function",
+            "item_id": "createPageController",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "doneResponse",
+            "type": "function",
+            "item_id": "doneResponse",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "fetchLlmsTxt",
+            "type": "function",
+            "item_id": "fetchLlmsTxt",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "isExecutingTool",
+            "type": "function",
+            "item_id": "isExecutingTool",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "normalizeResponse",
+            "type": "function",
+            "item_id": "normalizeResponse",
+            "file_path": "src/utils/autoFixer.ts"
+          },
+          {
+            "name": "onceActivity",
+            "type": "function",
+            "item_id": "onceActivity",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "randomID",
+            "type": "function",
+            "item_id": "randomID",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "retrieveJsonFromString",
+            "type": "function",
+            "item_id": "retrieveJsonFromString",
+            "file_path": "src/utils/autoFixer.ts"
+          },
+          {
+            "name": "safeJsonParse",
+            "type": "function",
+            "item_id": "safeJsonParse",
+            "file_path": "src/utils/autoFixer.ts"
+          },
+          {
+            "name": "startBlockedTask",
+            "type": "function",
+            "item_id": "startBlockedTask",
+            "file_path": "src/PageAgentCore.test.ts"
+          },
+          {
+            "name": "suppress",
+            "type": "function",
+            "item_id": "suppress",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "tool",
+            "type": "function",
+            "item_id": "tool",
+            "file_path": "src/tools/index.ts"
+          },
+          {
+            "name": "truncate",
+            "type": "function",
+            "item_id": "truncate",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "uid",
+            "type": "function",
+            "item_id": "uid",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "validateAction",
+            "type": "function",
+            "item_id": "validateAction",
+            "file_path": "src/utils/autoFixer.ts"
+          },
+          {
+            "name": "waitFor",
+            "type": "function",
+            "item_id": "waitFor",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "waitResponse",
+            "type": "function",
+            "item_id": "waitResponse",
+            "file_path": "src/PageAgentCore.test.ts"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 22,
+      "total_edges": 6,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

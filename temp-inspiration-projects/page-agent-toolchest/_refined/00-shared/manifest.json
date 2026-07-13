@@ -1,0 +1,105 @@
+{
+  "version": "1.0",
+  "generator": "cleansed",
+  "generator_version": "1.0.0",
+  "generated": "2026-07-08T04:30:01.812883",
+  "source_directory": "/Users/kc/page-agent-toolchest/00-shared",
+  "output_directory": "/Users/kc/page-agent-toolchest/_refined/00-shared",
+  "total_items": 5,
+  "raw_source_files": {
+    "count": 14,
+    "directory": "raw/",
+    "files": [
+      "raw/.prettierignore",
+      "raw/README.md",
+      "raw/contracts.md",
+      "raw/eslint.config.js",
+      "raw/root-package.json",
+      "raw/scripts/build-libs.js",
+      "raw/scripts/build.js",
+      "raw/scripts/ci.js",
+      "raw/scripts/parallel-task.js",
+      "raw/scripts/post-publish.js",
+      "raw/scripts/pre-publish.js",
+      "raw/scripts/sync-version.js",
+      "raw/tsconfig.base.json",
+      "raw/tsconfig.typecheck.json"
+    ]
+  },
+  "items": [
+    {
+      "name": "run",
+      "qualified_name": "run",
+      "type": "function",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/00-shared/scripts/ci.js",
+      "source_line": 17,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "isMainBranch",
+      "qualified_name": "isMainBranch",
+      "type": "function",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/00-shared/scripts/ci.js",
+      "source_line": 22,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "parallelTask",
+      "qualified_name": "parallelTask",
+      "type": "function",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/00-shared/scripts/parallel-task.js",
+      "source_line": 11,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "isInternalPackage",
+      "qualified_name": "isInternalPackage",
+      "type": "function",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/00-shared/scripts/sync-version.js",
+      "source_line": 56,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "updateInternalDeps",
+      "qualified_name": "updateInternalDeps",
+      "type": "function",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/00-shared/scripts/sync-version.js",
+      "source_line": 64,
+      "is_valid": true,
+      "validation_error": null
+    }
+  ],
+  "files_created": [
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/javascript/run.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/javascript/is_main_branch.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/javascript/parallel_task.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/javascript/is_internal_package.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/javascript/update_internal_deps.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/javascript/index.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/package.json",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/contracts.md",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/tsconfig.base.json",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/.prettierignore",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/README.md",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/root-package.json",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/eslint.config.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/tsconfig.typecheck.json",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/scripts/ci.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/scripts/parallel-task.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/scripts/build.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/scripts/pre-publish.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/scripts/post-publish.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/scripts/sync-version.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/raw/scripts/build-libs.js",
+    "/Users/kc/page-agent-toolchest/_refined/00-shared/README.md"
+  ]
+}

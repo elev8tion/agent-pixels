@@ -1,0 +1,218 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/06-mcp",
+  "output": "/Users/kc/page-agent-toolchest/_refined/06-mcp",
+  "files_created": 17,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/06-mcp/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/06-mcp/README.md",
+  "health": {
+    "score": 70,
+    "long_functions": [],
+    "duplications": [
+      {
+        "item_a": "EXT_ID",
+        "item_b": "STORE_URL",
+        "item_a_id": "EXT_ID",
+        "item_b_id": "STORE_URL",
+        "similarity": 0.993
+      },
+      {
+        "item_a": "STORE_URL",
+        "item_b": "LOOPBACK_HOST",
+        "item_a_id": "STORE_URL",
+        "item_b_id": "LOOPBACK_HOST",
+        "similarity": 0.974
+      },
+      {
+        "item_a": "EXT_ID",
+        "item_b": "LOOPBACK_HOST",
+        "item_a_id": "EXT_ID",
+        "item_b_id": "LOOPBACK_HOST",
+        "similarity": 0.967
+      },
+      {
+        "item_a": "LOOPBACK_HOST",
+        "item_b": "HubBridge",
+        "item_a_id": "LOOPBACK_HOST",
+        "item_b_id": "HubBridge",
+        "similarity": 0.894
+      },
+      {
+        "item_a": "STORE_URL",
+        "item_b": "HubBridge",
+        "item_a_id": "STORE_URL",
+        "item_b_id": "HubBridge",
+        "similarity": 0.87
+      },
+      {
+        "item_a": "EXT_ID",
+        "item_b": "HubBridge",
+        "item_a_id": "EXT_ID",
+        "item_b_id": "HubBridge",
+        "similarity": 0.864
+      }
+    ],
+    "coupling": [
+      {
+        "item_id": "script_block_198",
+        "name": "script_block_198",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "script_block_198.showInstall",
+        "name": "script_block_198.showInstall",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      }
+    ]
+  },
+  "dead_code_count": 6,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 7
+        }
+      },
+      {
+        "data": {
+          "id": "script_block_198",
+          "label": "script_block_198",
+          "type": "script_block",
+          "parent": "dir-src",
+          "file": "src/launcher.html",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "script_block_198.showInstall",
+          "label": "script_block_198.showInstall",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/launcher.html",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "EXT_ID",
+          "label": "EXT_ID",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/hub-bridge.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "STORE_URL",
+          "label": "STORE_URL",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/hub-bridge.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "LOOPBACK_HOST",
+          "label": "LOOPBACK_HOST",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/hub-bridge.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "HubBridge",
+          "label": "HubBridge",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/hub-bridge.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "style_block_8",
+          "label": "style_block_8",
+          "type": "style_block",
+          "parent": "dir-src",
+          "file": "src/launcher.html",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "source": "script_block_198.showInstall",
+          "target": "script_block_198",
+          "edgeType": "parent",
+          "label": "script_block_198"
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "src",
+        "item_count": 7,
+        "items": [
+          {
+            "name": "EXT_ID",
+            "type": "component",
+            "item_id": "EXT_ID",
+            "file_path": "src/hub-bridge.js"
+          },
+          {
+            "name": "HubBridge",
+            "type": "class",
+            "item_id": "HubBridge",
+            "file_path": "src/hub-bridge.js"
+          },
+          {
+            "name": "LOOPBACK_HOST",
+            "type": "component",
+            "item_id": "LOOPBACK_HOST",
+            "file_path": "src/hub-bridge.js"
+          },
+          {
+            "name": "STORE_URL",
+            "type": "component",
+            "item_id": "STORE_URL",
+            "file_path": "src/hub-bridge.js"
+          },
+          {
+            "name": "script_block_198",
+            "type": "script_block",
+            "item_id": "script_block_198",
+            "file_path": "src/launcher.html"
+          },
+          {
+            "name": "script_block_198.showInstall",
+            "type": "function",
+            "item_id": "script_block_198.showInstall",
+            "file_path": "src/launcher.html"
+          },
+          {
+            "name": "style_block_8",
+            "type": "style_block",
+            "item_id": "style_block_8",
+            "file_path": "src/launcher.html"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 7,
+      "total_edges": 1,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

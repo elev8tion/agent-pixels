@@ -1,0 +1,1412 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/08-website",
+  "output": "/Users/kc/page-agent-toolchest/_refined/08-website",
+  "files_created": 193,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/08-website/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/08-website/README.md",
+  "health": {
+    "score": 58,
+    "long_functions": [
+      {
+        "item_id": "ChromeExtension",
+        "name": "ChromeExtension",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/features/chrome-extension/page.tsx",
+        "line_count": 308
+      },
+      {
+        "item_id": "Overview",
+        "name": "Overview",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/overview/page.tsx",
+        "line_count": 230
+      },
+      {
+        "item_id": "PageAgentDocs",
+        "name": "PageAgentDocs",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/advanced/page-agent/page.tsx",
+        "line_count": 218
+      },
+      {
+        "item_id": "FeaturesSection",
+        "name": "FeaturesSection",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/home/FeaturesSection.tsx",
+        "line_count": 201
+      },
+      {
+        "item_id": "Header",
+        "name": "Header",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/components/Header.tsx",
+        "line_count": 176
+      },
+      {
+        "item_id": "ScenariosSection",
+        "name": "ScenariosSection",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/home/ScenariosSection.tsx",
+        "line_count": 159
+      },
+      {
+        "item_id": "LimitationsPage",
+        "name": "LimitationsPage",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/limitations/page.tsx",
+        "line_count": 153
+      },
+      {
+        "item_id": "Instructions",
+        "name": "Instructions",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/features/custom-instructions/page.tsx",
+        "line_count": 132
+      },
+      {
+        "item_id": "ThemeSwitcher",
+        "name": "ThemeSwitcher",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/components/ThemeSwitcher.tsx",
+        "line_count": 130
+      },
+      {
+        "item_id": "QuickStart",
+        "name": "QuickStart",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/quick-start/page.tsx",
+        "line_count": 129
+      },
+      {
+        "item_id": "LanguageSwitcher",
+        "name": "LanguageSwitcher",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/components/LanguageSwitcher.tsx",
+        "line_count": 110
+      },
+      {
+        "item_id": "CustomTools",
+        "name": "CustomTools",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/features/custom-tools/page.tsx",
+        "line_count": 110
+      },
+      {
+        "item_id": "OneMoreThingSection",
+        "name": "OneMoreThingSection",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/home/OneMoreThingSection.tsx",
+        "line_count": 106
+      },
+      {
+        "item_id": "DocsRouter",
+        "name": "DocsRouter",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/index.tsx",
+        "line_count": 98
+      },
+      {
+        "item_id": "ThirdPartyAgentPage",
+        "name": "ThirdPartyAgentPage",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/features/third-party-agent/page.tsx",
+        "line_count": 95
+      },
+      {
+        "item_id": "SecurityPermissions",
+        "name": "SecurityPermissions",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/advanced/security-permissions/page.tsx",
+        "line_count": 85
+      },
+      {
+        "item_id": "Footer",
+        "name": "Footer",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/components/Footer.tsx",
+        "line_count": 73
+      },
+      {
+        "item_id": "TroubleshootingPage",
+        "name": "TroubleshootingPage",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/troubleshooting/page.tsx",
+        "line_count": 73
+      },
+      {
+        "item_id": "DataMasking",
+        "name": "DataMasking",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/features/data-masking/page.tsx",
+        "line_count": 70
+      },
+      {
+        "item_id": "PageAgentCoreDocs",
+        "name": "PageAgentCoreDocs",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/advanced/page-agent-core/page.tsx",
+        "line_count": 67
+      },
+      {
+        "item_id": "WrongElementContent",
+        "name": "WrongElementContent",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/troubleshooting/page.tsx",
+        "line_count": 66
+      },
+      {
+        "item_id": "PageControllerDocs",
+        "name": "PageControllerDocs",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/advanced/page-controller/page.tsx",
+        "line_count": 62
+      },
+      {
+        "item_id": "Router",
+        "name": "Router",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/router.tsx",
+        "line_count": 54
+      },
+      {
+        "item_id": "LowSuccessRateContent",
+        "name": "LowSuccessRateContent",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/troubleshooting/page.tsx",
+        "line_count": 53
+      },
+      {
+        "item_id": "ApiErrorsContent",
+        "name": "ApiErrorsContent",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/troubleshooting/page.tsx",
+        "line_count": 44
+      },
+      {
+        "item_id": "CustomUIDocs",
+        "name": "CustomUIDocs",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/advanced/custom-ui/page.tsx",
+        "line_count": 42
+      },
+      {
+        "item_id": "useActiveSection",
+        "name": "useActiveSection",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/pages/docs/introduction/troubleshooting/page.tsx",
+        "line_count": 35
+      },
+      {
+        "item_id": "spaRoutes",
+        "name": "spaRoutes",
+        "file": "/Users/kc/page-agent-toolchest/08-website/vite.config.js",
+        "line_count": 28
+      },
+      {
+        "item_id": "BetaNotice",
+        "name": "BetaNotice",
+        "file": "/Users/kc/page-agent-toolchest/08-website/src/components/BetaNotice.tsx",
+        "line_count": 23
+      },
+      {
+        "item_id": "script_block_38.gtag",
+        "name": "script_block_38.gtag",
+        "file": "/Users/kc/page-agent-toolchest/08-website/index.html",
+        "line_count": 20
+      }
+    ],
+    "duplications": [
+      {
+        "item_a": "CARD_HEIGHT",
+        "item_b": "FeaturesSection",
+        "item_a_id": "CARD_HEIGHT",
+        "item_b_id": "FeaturesSection",
+        "similarity": 0.997
+      },
+      {
+        "item_a": "script_block_86",
+        "item_b": "script_block_86.updateHtmlLang",
+        "item_a_id": "script_block_86",
+        "item_b_id": "script_block_86.updateHtmlLang",
+        "similarity": 0.967
+      },
+      {
+        "item_a": "SITE_URL",
+        "item_b": "spaRoutes",
+        "item_a_id": "SITE_URL",
+        "item_b_id": "spaRoutes",
+        "similarity": 0.924
+      },
+      {
+        "item_a": "FeaturesSection",
+        "item_b": "ScenariosSection",
+        "item_a_id": "FeaturesSection@index",
+        "item_b_id": "ScenariosSection@index",
+        "similarity": 0.896
+      },
+      {
+        "item_a": "ScenariosSection",
+        "item_b": "OneMoreThingSection",
+        "item_a_id": "ScenariosSection@index",
+        "item_b_id": "OneMoreThingSection@index",
+        "similarity": 0.884
+      },
+      {
+        "item_a": "OneMoreThingSection",
+        "item_b": "HomePage",
+        "item_a_id": "OneMoreThingSection@index",
+        "item_b_id": "HomePage",
+        "similarity": 0.868
+      },
+      {
+        "item_a": "FeaturesSection",
+        "item_b": "OneMoreThingSection",
+        "item_a_id": "FeaturesSection@index",
+        "item_b_id": "OneMoreThingSection@index",
+        "similarity": 0.792
+      },
+      {
+        "item_a": "ScenariosSection",
+        "item_b": "HomePage",
+        "item_a_id": "ScenariosSection@index",
+        "item_b_id": "HomePage",
+        "similarity": 0.767
+      },
+      {
+        "item_a": "DEFAULT_CHARACTER_SET",
+        "item_b": "getRandomInt",
+        "item_a_id": "DEFAULT_CHARACTER_SET",
+        "item_b_id": "getRandomInt",
+        "similarity": 0.757
+      },
+      {
+        "item_a": "AlertTitle",
+        "item_b": "AlertDescription",
+        "item_a_id": "AlertTitle",
+        "item_b_id": "AlertDescription",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "AlertTitle",
+        "item_b": "KbdGroup",
+        "item_a_id": "AlertTitle",
+        "item_b_id": "KbdGroup",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "AlertDescription",
+        "item_b": "KbdGroup",
+        "item_a_id": "AlertDescription",
+        "item_b_id": "KbdGroup",
+        "similarity": 0.75
+      },
+      {
+        "item_a": "docsImport",
+        "item_b": "DocsPages",
+        "item_a_id": "docsImport",
+        "item_b_id": "DocsPages",
+        "similarity": 0.75
+      }
+    ],
+    "coupling": [
+      {
+        "item_id": "Switch",
+        "name": "Switch",
+        "score": 5,
+        "forward": 0,
+        "reverse": 5
+      },
+      {
+        "item_id": "DocsRouter",
+        "name": "DocsRouter",
+        "score": 2,
+        "forward": 2,
+        "reverse": 0
+      },
+      {
+        "item_id": "script_block_38",
+        "name": "script_block_38",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "script_block_38.gtag",
+        "name": "script_block_38.gtag",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "script_block_86",
+        "name": "script_block_86",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "script_block_86.updateHtmlLang",
+        "name": "script_block_86.updateHtmlLang",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "APIReference",
+        "name": "APIReference",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "PageAgentCoreDocs",
+        "name": "PageAgentCoreDocs",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "DocsPage",
+        "name": "DocsPage",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "SECTIONS",
+        "name": "SECTIONS",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "FormatErrorsContent",
+        "name": "FormatErrorsContent",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "docsImport",
+        "name": "docsImport",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "DocsPages",
+        "name": "DocsPages",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "ScrollToTop",
+        "name": "ScrollToTop",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "Router",
+        "name": "Router",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      }
+    ]
+  },
+  "dead_code_count": 104,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-root",
+          "label": "root/",
+          "type": "module",
+          "itemCount": 8
+        }
+      },
+      {
+        "data": {
+          "id": "script_block_38",
+          "label": "script_block_38",
+          "type": "script_block",
+          "parent": "dir-root",
+          "file": "index.html",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "script_block_38.gtag",
+          "label": "script_block_38.gtag",
+          "type": "function",
+          "parent": "dir-root",
+          "file": "index.html",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "script_block_86",
+          "label": "script_block_86",
+          "type": "script_block",
+          "parent": "dir-root",
+          "file": "index.html",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "script_block_86.updateHtmlLang",
+          "label": "script_block_86.updateHtmlLang",
+          "type": "function",
+          "parent": "dir-root",
+          "file": "index.html",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "style_block_53",
+          "label": "style_block_53",
+          "type": "style_block",
+          "parent": "dir-root",
+          "file": "index.html",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "SPA_ROUTES",
+          "label": "SPA_ROUTES",
+          "type": "component",
+          "parent": "dir-root",
+          "file": "vite.config.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "SITE_URL",
+          "label": "SITE_URL",
+          "type": "component",
+          "parent": "dir-root",
+          "file": "vite.config.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "spaRoutes",
+          "label": "spaRoutes",
+          "type": "function",
+          "parent": "dir-root",
+          "file": "vite.config.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 102
+        }
+      },
+      {
+        "data": {
+          "id": "Switch",
+          "label": "Switch",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/ui/switch.tsx",
+          "connections": 5
+        }
+      },
+      {
+        "data": {
+          "id": "DocsRouter",
+          "label": "DocsRouter",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/pages/docs/index.tsx",
+          "connections": 2
+        }
+      },
+      {
+        "data": {
+          "id": "APIReference",
+          "label": "APIReference",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/APIReference.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "PageAgentCoreDocs",
+          "label": "PageAgentCoreDocs",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/pages/docs/advanced/page-agent-core/page.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "DocsPage",
+          "label": "DocsPage",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/pages/docs/index.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "SECTIONS",
+          "label": "SECTIONS",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/pages/docs/introduction/troubleshooting/page.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "FormatErrorsContent",
+          "label": "FormatErrorsContent",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/pages/docs/introduction/troubleshooting/page.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "docsImport",
+          "label": "docsImport",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/router.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "DocsPages",
+          "label": "DocsPages",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/router.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "ScrollToTop",
+          "label": "ScrollToTop",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/router.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "Router",
+          "label": "Router",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/router.tsx",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "PropRow",
+          "label": "PropRow",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/APIReference.tsx",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "TypeRef",
+          "label": "TypeRef",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/APIReference.tsx",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "APIDivider",
+          "label": "APIDivider",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/APIReference.tsx",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "BetaNotice",
+          "label": "BetaNotice",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/components/BetaNotice.tsx",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "dir-src-more",
+          "label": "+87 more",
+          "type": "overflow",
+          "parent": "dir-src",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "source": "DocsRouter",
+          "target": "Switch",
+          "edgeType": "type_reference",
+          "label": "Switch"
+        }
+      },
+      {
+        "data": {
+          "source": "DocsRouter",
+          "target": "DocsPage",
+          "edgeType": "type_reference",
+          "label": "DocsPage"
+        }
+      },
+      {
+        "data": {
+          "source": "SECTIONS",
+          "target": "FormatErrorsContent",
+          "edgeType": "type_reference",
+          "label": "FormatErrorsContent"
+        }
+      },
+      {
+        "data": {
+          "source": "Router",
+          "target": "Switch",
+          "edgeType": "type_reference",
+          "label": "Switch"
+        }
+      },
+      {
+        "data": {
+          "source": "PageAgentCoreDocs",
+          "target": "APIReference",
+          "edgeType": "import",
+          "label": "APIReference"
+        }
+      },
+      {
+        "data": {
+          "source": "docsImport",
+          "target": "Switch",
+          "edgeType": "import",
+          "label": "Switch"
+        }
+      },
+      {
+        "data": {
+          "source": "DocsPages",
+          "target": "Switch",
+          "edgeType": "import",
+          "label": "Switch"
+        }
+      },
+      {
+        "data": {
+          "source": "ScrollToTop",
+          "target": "Switch",
+          "edgeType": "import",
+          "label": "Switch"
+        }
+      },
+      {
+        "data": {
+          "source": "script_block_38.gtag",
+          "target": "script_block_38",
+          "edgeType": "parent",
+          "label": "script_block_38"
+        }
+      },
+      {
+        "data": {
+          "source": "script_block_86.updateHtmlLang",
+          "target": "script_block_86",
+          "edgeType": "parent",
+          "label": "script_block_86"
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "root",
+        "item_count": 8,
+        "items": [
+          {
+            "name": "SITE_URL",
+            "type": "component",
+            "item_id": "SITE_URL",
+            "file_path": "vite.config.js"
+          },
+          {
+            "name": "SPA_ROUTES",
+            "type": "component",
+            "item_id": "SPA_ROUTES",
+            "file_path": "vite.config.js"
+          },
+          {
+            "name": "script_block_38",
+            "type": "script_block",
+            "item_id": "script_block_38",
+            "file_path": "index.html"
+          },
+          {
+            "name": "script_block_38.gtag",
+            "type": "function",
+            "item_id": "script_block_38.gtag",
+            "file_path": "index.html"
+          },
+          {
+            "name": "script_block_86",
+            "type": "script_block",
+            "item_id": "script_block_86",
+            "file_path": "index.html"
+          },
+          {
+            "name": "script_block_86.updateHtmlLang",
+            "type": "function",
+            "item_id": "script_block_86.updateHtmlLang",
+            "file_path": "index.html"
+          },
+          {
+            "name": "spaRoutes",
+            "type": "function",
+            "item_id": "spaRoutes",
+            "file_path": "vite.config.js"
+          },
+          {
+            "name": "style_block_53",
+            "type": "style_block",
+            "item_id": "style_block_53",
+            "file_path": "index.html"
+          }
+        ]
+      },
+      {
+        "directory": "src",
+        "item_count": 102,
+        "items": [
+          {
+            "name": "APIDivider",
+            "type": "function",
+            "item_id": "APIDivider",
+            "file_path": "src/components/APIReference.tsx"
+          },
+          {
+            "name": "APIReference",
+            "type": "function",
+            "item_id": "APIReference",
+            "file_path": "src/components/APIReference.tsx"
+          },
+          {
+            "name": "Alert",
+            "type": "function",
+            "item_id": "Alert",
+            "file_path": "src/components/ui/alert.tsx"
+          },
+          {
+            "name": "AlertDescription",
+            "type": "function",
+            "item_id": "AlertDescription",
+            "file_path": "src/components/ui/alert.tsx"
+          },
+          {
+            "name": "AlertTitle",
+            "type": "function",
+            "item_id": "AlertTitle",
+            "file_path": "src/components/ui/alert.tsx"
+          },
+          {
+            "name": "AnimatedGradientText",
+            "type": "function",
+            "item_id": "AnimatedGradientText",
+            "file_path": "src/components/ui/animated-gradient-text.tsx"
+          },
+          {
+            "name": "AnimatedShinyText",
+            "type": "component",
+            "item_id": "AnimatedShinyText",
+            "file_path": "src/components/ui/animated-shiny-text.tsx"
+          },
+          {
+            "name": "ApiErrorsContent",
+            "type": "function",
+            "item_id": "ApiErrorsContent",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "AuroraText",
+            "type": "component",
+            "item_id": "AuroraText",
+            "file_path": "src/components/ui/aurora-text.tsx"
+          },
+          {
+            "name": "Badge",
+            "type": "function",
+            "item_id": "Badge",
+            "file_path": "src/components/ui/badge.tsx"
+          },
+          {
+            "name": "BentoCard",
+            "type": "component",
+            "item_id": "BentoCard",
+            "file_path": "src/components/ui/bento-grid.tsx"
+          },
+          {
+            "name": "BentoGrid",
+            "type": "component",
+            "item_id": "BentoGrid",
+            "file_path": "src/components/ui/bento-grid.tsx"
+          },
+          {
+            "name": "BetaNotice",
+            "type": "function",
+            "item_id": "BetaNotice",
+            "file_path": "src/components/BetaNotice.tsx"
+          },
+          {
+            "name": "BlurFade",
+            "type": "function",
+            "item_id": "BlurFade",
+            "file_path": "src/components/ui/blur-fade.tsx"
+          },
+          {
+            "name": "Button",
+            "type": "function",
+            "item_id": "Button",
+            "file_path": "src/components/ui/button.tsx"
+          },
+          {
+            "name": "CARD_HEIGHT",
+            "type": "component",
+            "item_id": "CARD_HEIGHT",
+            "file_path": "src/pages/home/FeaturesSection.tsx"
+          },
+          {
+            "name": "ChromeExtension",
+            "type": "function",
+            "item_id": "ChromeExtension",
+            "file_path": "src/pages/docs/features/chrome-extension/page.tsx"
+          },
+          {
+            "name": "CodeEditor",
+            "type": "component",
+            "item_id": "CodeEditor",
+            "file_path": "src/components/CodeEditor.tsx"
+          },
+          {
+            "name": "ConsoleInterceptor",
+            "type": "class",
+            "item_id": "ConsoleInterceptor",
+            "file_path": "src/components/JSConsole.tsx"
+          },
+          {
+            "name": "CustomTools",
+            "type": "function",
+            "item_id": "CustomTools",
+            "file_path": "src/pages/docs/features/custom-tools/page.tsx"
+          },
+          {
+            "name": "CustomUIDocs",
+            "type": "function",
+            "item_id": "CustomUIDocs",
+            "file_path": "src/pages/docs/advanced/custom-ui/page.tsx"
+          },
+          {
+            "name": "DEFAULT_CHARACTER_SET",
+            "type": "component",
+            "item_id": "DEFAULT_CHARACTER_SET",
+            "file_path": "src/components/ui/hyper-text.tsx"
+          },
+          {
+            "name": "DEFAULT_CONTEXT",
+            "type": "component",
+            "item_id": "DEFAULT_CONTEXT",
+            "file_path": "src/components/JSConsole.tsx"
+          },
+          {
+            "name": "DataMasking",
+            "type": "function",
+            "item_id": "DataMasking",
+            "file_path": "src/pages/docs/features/data-masking/page.tsx"
+          },
+          {
+            "name": "DocsLayout",
+            "type": "function",
+            "item_id": "DocsLayout",
+            "file_path": "src/pages/docs/Layout.tsx"
+          },
+          {
+            "name": "DocsPage",
+            "type": "function",
+            "item_id": "DocsPage",
+            "file_path": "src/pages/docs/index.tsx"
+          },
+          {
+            "name": "DocsPages",
+            "type": "component",
+            "item_id": "DocsPages",
+            "file_path": "src/router.tsx"
+          },
+          {
+            "name": "DocsRouter",
+            "type": "function",
+            "item_id": "DocsRouter",
+            "file_path": "src/pages/docs/index.tsx"
+          },
+          {
+            "name": "FeaturesSection",
+            "type": "function",
+            "item_id": "FeaturesSection",
+            "file_path": "src/pages/home/FeaturesSection.tsx"
+          },
+          {
+            "name": "FeaturesSection",
+            "type": "component",
+            "item_id": "FeaturesSection@index",
+            "file_path": "src/pages/home/index.tsx"
+          },
+          {
+            "name": "Footer",
+            "type": "function",
+            "item_id": "Footer",
+            "file_path": "src/components/Footer.tsx"
+          },
+          {
+            "name": "FormatErrorsContent",
+            "type": "function",
+            "item_id": "FormatErrorsContent",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "Header",
+            "type": "function",
+            "item_id": "Header",
+            "file_path": "src/components/Header.tsx"
+          },
+          {
+            "name": "Heading",
+            "type": "function",
+            "item_id": "Heading",
+            "file_path": "src/components/Heading.tsx"
+          },
+          {
+            "name": "HeroSection",
+            "type": "function",
+            "item_id": "HeroSection",
+            "file_path": "src/pages/home/HeroSection.tsx"
+          },
+          {
+            "name": "HighlightSyntaxClient",
+            "type": "component",
+            "item_id": "HighlightSyntaxClient",
+            "file_path": "src/components/HighlightSyntax.tsx"
+          },
+          {
+            "name": "Highlighter",
+            "type": "function",
+            "item_id": "Highlighter",
+            "file_path": "src/components/ui/highlighter.tsx"
+          },
+          {
+            "name": "HomePage",
+            "type": "function",
+            "item_id": "HomePage",
+            "file_path": "src/pages/home/index.tsx"
+          },
+          {
+            "name": "HyperText",
+            "type": "function",
+            "item_id": "HyperText",
+            "file_path": "src/components/ui/hyper-text.tsx"
+          },
+          {
+            "name": "Instructions",
+            "type": "function",
+            "item_id": "Instructions",
+            "file_path": "src/pages/docs/features/custom-instructions/page.tsx"
+          },
+          {
+            "name": "JSConsole",
+            "type": "function",
+            "item_id": "JSConsole",
+            "file_path": "src/components/JSConsole.tsx"
+          },
+          {
+            "name": "Kbd",
+            "type": "function",
+            "item_id": "Kbd",
+            "file_path": "src/components/ui/kbd.tsx"
+          },
+          {
+            "name": "KbdGroup",
+            "type": "function",
+            "item_id": "KbdGroup",
+            "file_path": "src/components/ui/kbd.tsx"
+          },
+          {
+            "name": "LLM_CLOUD",
+            "type": "component",
+            "item_id": "LLM_CLOUD",
+            "file_path": "src/pages/home/FeaturesSection.tsx"
+          },
+          {
+            "name": "LanguageContext",
+            "type": "component",
+            "item_id": "LanguageContext",
+            "file_path": "src/i18n/context.tsx"
+          },
+          {
+            "name": "LanguageProvider",
+            "type": "function",
+            "item_id": "LanguageProvider",
+            "file_path": "src/i18n/context.tsx"
+          },
+          {
+            "name": "LanguageSwitcher",
+            "type": "function",
+            "item_id": "LanguageSwitcher",
+            "file_path": "src/components/LanguageSwitcher.tsx"
+          },
+          {
+            "name": "LimitationsPage",
+            "type": "function",
+            "item_id": "LimitationsPage",
+            "file_path": "src/pages/docs/introduction/limitations/page.tsx"
+          },
+          {
+            "name": "LowSuccessRateContent",
+            "type": "function",
+            "item_id": "LowSuccessRateContent",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "MagicCard",
+            "type": "function",
+            "item_id": "MagicCard",
+            "file_path": "src/components/ui/magic-card.tsx"
+          },
+          {
+            "name": "Marquee",
+            "type": "function",
+            "item_id": "Marquee",
+            "file_path": "src/components/ui/marquee.tsx"
+          },
+          {
+            "name": "McpServerPage",
+            "type": "function",
+            "item_id": "McpServerPage",
+            "file_path": "src/pages/docs/features/mcp-server/page.tsx"
+          },
+          {
+            "name": "ModelBadge",
+            "type": "component",
+            "item_id": "ModelBadge",
+            "file_path": "src/pages/docs/features/models/page.tsx"
+          },
+          {
+            "name": "Models",
+            "type": "function",
+            "item_id": "Models",
+            "file_path": "src/pages/docs/features/models/page.tsx"
+          },
+          {
+            "name": "MousePosition",
+            "type": "function",
+            "item_id": "MousePosition",
+            "file_path": "src/components/ui/particles.tsx"
+          },
+          {
+            "name": "NeonGradientCard",
+            "type": "component",
+            "item_id": "NeonGradientCard",
+            "file_path": "src/components/ui/neon-gradient-card.tsx"
+          },
+          {
+            "name": "OneMoreThingSection",
+            "type": "function",
+            "item_id": "OneMoreThingSection",
+            "file_path": "src/pages/home/OneMoreThingSection.tsx"
+          },
+          {
+            "name": "OneMoreThingSection",
+            "type": "component",
+            "item_id": "OneMoreThingSection@index",
+            "file_path": "src/pages/home/index.tsx"
+          },
+          {
+            "name": "Overview",
+            "type": "function",
+            "item_id": "Overview",
+            "file_path": "src/pages/docs/introduction/overview/page.tsx"
+          },
+          {
+            "name": "PageAgentCoreDocs",
+            "type": "function",
+            "item_id": "PageAgentCoreDocs",
+            "file_path": "src/pages/docs/advanced/page-agent-core/page.tsx"
+          },
+          {
+            "name": "PageAgentDocs",
+            "type": "function",
+            "item_id": "PageAgentDocs",
+            "file_path": "src/pages/docs/advanced/page-agent/page.tsx"
+          },
+          {
+            "name": "PageControllerDocs",
+            "type": "function",
+            "item_id": "PageControllerDocs",
+            "file_path": "src/pages/docs/advanced/page-controller/page.tsx"
+          },
+          {
+            "name": "Particles",
+            "type": "component",
+            "item_id": "Particles",
+            "file_path": "src/components/ui/particles.tsx"
+          },
+          {
+            "name": "PropRow",
+            "type": "function",
+            "item_id": "PropRow",
+            "file_path": "src/components/APIReference.tsx"
+          },
+          {
+            "name": "PuppeteerPageController",
+            "type": "class",
+            "item_id": "PuppeteerPageController",
+            "file_path": "src/pages/docs/advanced/page-controller/page.tsx"
+          },
+          {
+            "name": "QuickStart",
+            "type": "function",
+            "item_id": "QuickStart",
+            "file_path": "src/pages/docs/introduction/quick-start/page.tsx"
+          },
+          {
+            "name": "Router",
+            "type": "function",
+            "item_id": "Router",
+            "file_path": "src/router.tsx"
+          },
+          {
+            "name": "SECTIONS",
+            "type": "component",
+            "item_id": "SECTIONS",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "SYMPTOM_COLORS",
+            "type": "component",
+            "item_id": "SYMPTOM_COLORS",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "ScenariosSection",
+            "type": "function",
+            "item_id": "ScenariosSection",
+            "file_path": "src/pages/home/ScenariosSection.tsx"
+          },
+          {
+            "name": "ScenariosSection",
+            "type": "component",
+            "item_id": "ScenariosSection@index",
+            "file_path": "src/pages/home/index.tsx"
+          },
+          {
+            "name": "ScrollToTop",
+            "type": "function",
+            "item_id": "ScrollToTop",
+            "file_path": "src/router.tsx"
+          },
+          {
+            "name": "SecurityPermissions",
+            "type": "function",
+            "item_id": "SecurityPermissions",
+            "file_path": "src/pages/docs/advanced/security-permissions/page.tsx"
+          },
+          {
+            "name": "Separator",
+            "type": "function",
+            "item_id": "Separator",
+            "file_path": "src/components/ui/separator.tsx"
+          },
+          {
+            "name": "Sparkle",
+            "type": "component",
+            "item_id": "Sparkle",
+            "file_path": "src/components/ui/sparkles-text.tsx"
+          },
+          {
+            "name": "SparklesText",
+            "type": "component",
+            "item_id": "SparklesText",
+            "file_path": "src/components/ui/sparkles-text.tsx"
+          },
+          {
+            "name": "Spinner",
+            "type": "function",
+            "item_id": "Spinner",
+            "file_path": "src/components/ui/spinner.tsx"
+          },
+          {
+            "name": "Switch",
+            "type": "function",
+            "item_id": "Switch",
+            "file_path": "src/components/ui/switch.tsx"
+          },
+          {
+            "name": "TextAnimateBase",
+            "type": "component",
+            "item_id": "TextAnimateBase",
+            "file_path": "src/components/ui/text-animate.tsx"
+          },
+          {
+            "name": "ThemeSwitcher",
+            "type": "function",
+            "item_id": "ThemeSwitcher",
+            "file_path": "src/components/ThemeSwitcher.tsx"
+          },
+          {
+            "name": "ThirdPartyAgentPage",
+            "type": "function",
+            "item_id": "ThirdPartyAgentPage",
+            "file_path": "src/pages/docs/features/third-party-agent/page.tsx"
+          },
+          {
+            "name": "Toaster",
+            "type": "component",
+            "item_id": "Toaster",
+            "file_path": "src/components/ui/sonner.tsx"
+          },
+          {
+            "name": "Tooltip",
+            "type": "function",
+            "item_id": "Tooltip",
+            "file_path": "src/components/ui/tooltip.tsx"
+          },
+          {
+            "name": "TooltipContent",
+            "type": "function",
+            "item_id": "TooltipContent",
+            "file_path": "src/components/ui/tooltip.tsx"
+          },
+          {
+            "name": "TooltipProvider",
+            "type": "function",
+            "item_id": "TooltipProvider",
+            "file_path": "src/components/ui/tooltip.tsx"
+          },
+          {
+            "name": "TooltipTrigger",
+            "type": "function",
+            "item_id": "TooltipTrigger",
+            "file_path": "src/components/ui/tooltip.tsx"
+          },
+          {
+            "name": "TroubleshootingPage",
+            "type": "function",
+            "item_id": "TroubleshootingPage",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "TypeRef",
+            "type": "function",
+            "item_id": "TypeRef",
+            "file_path": "src/components/APIReference.tsx"
+          },
+          {
+            "name": "TypingAnimation",
+            "type": "function",
+            "item_id": "TypingAnimation",
+            "file_path": "src/components/ui/typing-animation.tsx"
+          },
+          {
+            "name": "WrongElementContent",
+            "type": "function",
+            "item_id": "WrongElementContent",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "cn",
+            "type": "function",
+            "item_id": "cn",
+            "file_path": "src/lib/utils.ts"
+          },
+          {
+            "name": "docsImport",
+            "type": "function",
+            "item_id": "docsImport",
+            "file_path": "src/router.tsx"
+          },
+          {
+            "name": "escapeHtml",
+            "type": "function",
+            "item_id": "escapeHtml",
+            "file_path": "src/components/HighlightSyntax.tsx"
+          },
+          {
+            "name": "formatStars",
+            "type": "function",
+            "item_id": "formatStars",
+            "file_path": "src/hooks/useGitHubStars.ts"
+          },
+          {
+            "name": "getInjection",
+            "type": "function",
+            "item_id": "getInjection",
+            "file_path": "src/pages/home/HeroSection.tsx"
+          },
+          {
+            "name": "getRandomInt",
+            "type": "function",
+            "item_id": "getRandomInt",
+            "file_path": "src/components/ui/hyper-text.tsx"
+          },
+          {
+            "name": "hexToRgb",
+            "type": "function",
+            "item_id": "hexToRgb",
+            "file_path": "src/components/ui/particles.tsx"
+          },
+          {
+            "name": "highlightSyntax",
+            "type": "function",
+            "item_id": "highlightSyntax",
+            "file_path": "src/components/HighlightSyntax.tsx"
+          },
+          {
+            "name": "useActiveSection",
+            "type": "function",
+            "item_id": "useActiveSection",
+            "file_path": "src/pages/docs/introduction/troubleshooting/page.tsx"
+          },
+          {
+            "name": "useDocumentTitle",
+            "type": "function",
+            "item_id": "useDocumentTitle",
+            "file_path": "src/lib/useDocumentTitle.ts"
+          },
+          {
+            "name": "useGitHubStars",
+            "type": "function",
+            "item_id": "useGitHubStars",
+            "file_path": "src/hooks/useGitHubStars.ts"
+          },
+          {
+            "name": "useLanguage",
+            "type": "function",
+            "item_id": "useLanguage",
+            "file_path": "src/i18n/context.tsx"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 110,
+      "total_edges": 10,
+      "total_modules": 2,
+      "cross_module_edges": 0
+    }
+  }
+}

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Agent-Pixel</title>
+    <link rel="icon" type="image/png" href="/assets/agentpixel.png" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <header class="nav">
+        <div class="brand">
+          <img src="/assets/agentpixel.png" alt="Agent-Pixel logo" class="mark" />
+          <img src="/assets/agentpixel-letters.png" alt="Agent-Pixel" class="letters" />
+          <span id="extStatus" class="ext-status">checking extension…</span>
+        </div>
+        <nav>
+          <a href="#agent">Agent</a>
+          <a href="#vision">Visual Memory</a>
+          <a href="#extension">Extension</a>
+          <a href="#providers">Providers</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero grid-glow">
+          <div class="hero-copy">
+            <p class="eyebrow">DOM action × visual retrieval × multi-tab autonomy</p>
+            <h1>Agent-Pixel turns live webpages into an agent workspace with eyes.</h1>
+            <p class="lede">A standalone hybrid creation: Page-style browser control, Pixel-style visual memory, a native Chrome side panel, and a provider layer that talks directly to each model vendor.</p>
+            <div class="actions">
+              <button id="askButton" class="primary">Ask in Chat</button>
+              <button id="runAgentButton" class="secondary">Run Agent Loop</button>
+              <a class="secondary" href="#extension">Load the Chrome extension</a>
+            </div>
+          </div>
+          <div class="console-card">
+            <div class="console-top"><span></span><span></span><span></span><strong>agent-pixel://live</strong></div>
+            <pre id="agentOutput">Ready. Choose a provider, capture pages, then ask for action or analysis.</pre>
+          </div>
+        </section>
+
+        <section id="agent" class="panel two-col">
+          <div>
+            <p class="eyebrow">Page intelligence preserved</p>
+            <h2>Action through DOM truth, not brittle screenshots.</h2>
+            <p>Agent-Pixel maps interactive elements, keeps an observe → think → act loop, supports ask-user interruptions, and runs across tabs through its Chrome extension.</p>
+          </div>
+          <ul class="feature-list">
+            <li>Compact DOM observations with stable element ids.</li>
+            <li>Click, input, scroll, select, open tab, switch tab, capture tab.</li>
+            <li>Run history and activity timeline as first-class UI surfaces.</li>
+            <li>Extension bridge designed for remote page controllers.</li>
+          </ul>
+        </section>
+
+        <section id="vision" class="panel two-col reverse">
+          <div>
+            <p class="eyebrow">Pixel intelligence preserved</p>
+            <h2>Visual context for layouts, charts, tables, and screenshots.</h2>
+            <p>The local visual memory accepts extension screenshots and DOM summaries, ranks captures, and exposes visual search as an agent tool. Heavy embedding backends can be swapped in without changing the UI or extension contract.</p>
+          </div>
+          <div class="memory-card">
+            <h3>Visual memory</h3>
+            <div id="captureList" class="capture-list"></div>
+          </div>
+        </section>
+
+        <section id="providers" class="panel">
+          <p class="eyebrow">Truly provider agnostic</p>
+          <h2>Native adapters, no aggregator lock-in.</h2>
+
+          <div class="model-bar">
+            <div class="field-group">
+              <label for="providerSelect" class="field-label">Active model</label>
+              <select id="providerSelect"></select>
+            </div>
+            <div class="field-group reason">
+              <label for="reasoningLevel" class="field-label">Reasoning</label>
+              <select id="reasoningLevel">
+                <option value="">off</option>
+                <option value="low">low</option>
+                <option value="medium" selected>medium</option>
+                <option value="high">high</option>
+              </select>
+            </div>
+            <div class="status-col">
+              <span class="field-label">Status</span>
+              <span id="providerStatus" class="badge">checking…</span>
+              <span id="currentModelDisplay">loading…</span>
+            </div>
+          </div>
+
+          <div class="registry">
+            <div class="registry-head">
+              <span class="registry-summary" id="registrySummary">Loading registry…</span>
+              <div class="registry-controls">
+                <input id="providerFilter" class="registry-filter" type="search" placeholder="Filter models…" />
+                <button id="toggleProviders" class="ghost">Show all</button>
+              </div>
+            </div>
+            <div id="providersGrid" class="providers-grid collapsed"></div>
+          </div>
+
+          <details class="disclosure">
+            <summary>API keys (override for models not in .pi auth)</summary>
+            <div class="disclosure-body">
+              <div class="key-row">
+                <div class="field-group">
+                  <label for="keyProvider" class="field-label">Provider key</label>
+                  <input id="keyProvider" type="text" placeholder="e.g. deepseek-openai" />
+                </div>
+                <div class="field-group">
+                  <label for="keyValue" class="field-label">API key</label>
+                  <input id="keyValue" type="password" placeholder="sk-…" />
+                </div>
+                <button id="saveKeyBtn" class="secondary">Save</button>
+                <button id="clearKeysBtn" class="ghost">Clear</button>
+              </div>
+              <div id="keyOverridesList" style="font-size:11px;color:var(--muted)"></div>
+            </div>
+          </details>
+        </section>
+
+        <section id="extension" class="panel extension-panel">
+          <div>
+            <p class="eyebrow">Chrome extension included</p>
+            <h2>Side panel, background worker, content bridge.</h2>
+            <p>Load <code>Agent-Pixel/extension</code> as an unpacked Chrome extension. It captures visible tabs, extracts a DOM map, stores provider preferences, and sends page context to the local Agent-Pixel server.</p>
+          </div>
+          <ol>
+            <li>Run <code>npm run dev</code> from <code>Agent-Pixel</code>.</li>
+            <li>Open <code>chrome://extensions</code>, enable Developer Mode.</li>
+            <li>Choose “Load unpacked” and select <code>Agent-Pixel/extension</code>.</li>
+            <li>Open the side panel, capture the current tab, then ask Agent-Pixel.</li>
+          </ol>
+        </section>
+
+        <!-- New rich surfaces -->
+        <section id="chat" class="panel chat-panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Live interaction</p>
+              <h2>Chat with Agent-Pixel</h2>
+            </div>
+            <button id="clearChat" class="ghost">Clear</button>
+          </div>
+          <div id="chatMessages" class="chat-messages"></div>
+          <div class="chat-input-row">
+            <input id="chatInput" placeholder="Ask to explore, compare screenshots, summarize a layout, click something..." />
+            <button id="chatSend" class="primary">Send</button>
+          </div>
+          <div class="chat-hint">Visual context from memory is automatically injected. Switch providers above.</div>
+        </section>
+
+        <section id="agent-run" class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Observe → Think → Act</p>
+              <h2>Agent Loop Runner</h2>
+            </div>
+            <button id="runAgentBtn" class="primary">Run Full Loop</button>
+          </div>
+          <div class="run-input">
+            <input id="runTask" placeholder="Task: e.g. Find the pricing table and describe the plans" value="Analyze the page layout and highlight key visual elements" />
+          </div>
+          <div id="runSteps" class="run-steps"></div>
+        </section>
+
+        <section id="history" class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Transparency</p>
+              <h2>Run History</h2>
+            </div>
+            <button id="refreshHistory" class="ghost">Refresh</button>
+          </div>
+          <div id="historyList" class="history-list"></div>
+        </section>
+
+        <section id="visual-enhanced" class="panel">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Pixel memory enhanced</p>
+              <h2>Visual Memory Explorer</h2>
+            </div>
+            <div class="visual-controls">
+              <input id="visualSearch" placeholder="Search visual memory..." />
+              <button id="visualSearchBtn" class="secondary">Search</button>
+              <button id="captureSimulate" class="ghost">+ Simulate Capture</button>
+            </div>
+          </div>
+          <div id="visualTiles" class="visual-tiles"></div>
+        </section>
+      </main>
+    </div>
+    <script src="/main.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+# .pi/damage-control-rules.yaml
+# Used by pi-damage-control-sentinel
+# Protects your projects when the agentic-core layer is active
+
+protected_paths:
+  - ".env"
+  - ".env.*"
+  - "**/secrets.*"
+  - "**/*.pem"
+  - "**/*.key"
+  - ".git/**"
+  - "**/node_modules/**"
+  - "**/__pycache__/**"
+  - ".pi/**"  # protect the agentic layer itself from accidental modification
+
+dangerous_commands:
+  - "rm -rf /"
+  - "rm -rf ~"
+  - "sudo rm"
+  - "> /dev/null"  # overly broad redirects
+  - "format"
+  - "mkfs"
+  - ":(){ :|:& };:"  # fork bomb patterns
+  - "dd if=/dev/zero"
+
+block_rules:
+  - pattern: "git push.*--force"
+    action: "confirm"
+    message: "Force pushing can destroy remote history. Are you sure?"
+  - pattern: "npm publish"
+    action: "confirm"
+    message: "Publishing to npm is irreversible. Confirm this is intended."
+  - pattern: "cargo publish"
+    action: "confirm"
+    message: "Publishing to crates.io is irreversible."
+
+require_confirmation:
+  - "rm -rf"
+  - "git reset --hard"
+  - "git clean -fdx"
+  - "rm *.db"  # database deletion
+
+auto_block:
+  - pattern: "rm -rf .*\\*\\*"
+    reason: "Dangerous recursive delete pattern"
+
+# When agentic-core is active, be extra strict with destructive commands
+strict_mode: true
+
+notes: |
+  This file was installed by the agentic-core layer.
+  It protects both the project and the .pi system itself while allowing
+  full agentic operation.

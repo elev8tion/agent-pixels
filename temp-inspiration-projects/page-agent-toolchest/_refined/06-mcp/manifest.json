@@ -1,0 +1,110 @@
+{
+  "version": "1.0",
+  "generator": "cleansed",
+  "generator_version": "1.0.0",
+  "generated": "2026-07-08T04:30:02.307270",
+  "source_directory": "/Users/kc/page-agent-toolchest/06-mcp",
+  "output_directory": "/Users/kc/page-agent-toolchest/_refined/06-mcp",
+  "total_items": 7,
+  "raw_source_files": {
+    "count": 5,
+    "directory": "raw/",
+    "files": [
+      "raw/README.md",
+      "raw/package.json",
+      "raw/src/hub-bridge.js",
+      "raw/src/index.js",
+      "raw/src/launcher.html"
+    ]
+  },
+  "items": [
+    {
+      "name": "EXT_ID",
+      "qualified_name": "EXT_ID",
+      "type": "component",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/06-mcp/src/hub-bridge.js",
+      "source_line": 7,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "STORE_URL",
+      "qualified_name": "STORE_URL",
+      "type": "component",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/06-mcp/src/hub-bridge.js",
+      "source_line": 8,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "LOOPBACK_HOST",
+      "qualified_name": "LOOPBACK_HOST",
+      "type": "component",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/06-mcp/src/hub-bridge.js",
+      "source_line": 9,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "HubBridge",
+      "qualified_name": "HubBridge",
+      "type": "class",
+      "language": "javascript",
+      "source_file": "/Users/kc/page-agent-toolchest/06-mcp/src/hub-bridge.js",
+      "source_line": 21,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "style_block_8",
+      "qualified_name": "style_block_8",
+      "type": "style_block",
+      "language": "html",
+      "source_file": "/Users/kc/page-agent-toolchest/06-mcp/src/launcher.html",
+      "source_line": 8,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "script_block_198",
+      "qualified_name": "script_block_198",
+      "type": "script_block",
+      "language": "html",
+      "source_file": "/Users/kc/page-agent-toolchest/06-mcp/src/launcher.html",
+      "source_line": 198,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "showInstall",
+      "qualified_name": "script_block_198.showInstall",
+      "type": "function",
+      "language": "html",
+      "source_file": "/Users/kc/page-agent-toolchest/06-mcp/src/launcher.html",
+      "source_line": 223,
+      "is_valid": true,
+      "validation_error": null
+    }
+  ],
+  "files_created": [
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/javascript/ext_id.js",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/javascript/store_url.js",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/javascript/loopback_host.js",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/javascript/hub_bridge.js",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/javascript/index.js",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/package.json",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/html/style_block_8.html",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/html/script_block_198.html",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/html/show_install.html",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/html/index.html",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/raw/README.md",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/raw/package.json",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/raw/src/index.js",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/raw/src/hub-bridge.js",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/raw/src/launcher.html",
+    "/Users/kc/page-agent-toolchest/_refined/06-mcp/README.md"
+  ]
+}

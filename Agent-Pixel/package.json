@@ -1,0 +1,21 @@
+{
+  "name": "agent-pixel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Agent-Pixel: pure Pi agentic implementation complete. All custom code deprecated. Use agentic-core exclusively for sovereign operation.", 
+  "scripts": {
+    "dev": "echo 'Custom code fully deprecated. Run `agentic-core` for full sovereign Pi agentic system.'",
+    "agentic-core": "echo 'Agentic layer active - routing to Pi orchestrator (see .pi/agent/skills/agentic-core/)'")
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "agent-pixel",
+    "visual-rag",
+    "browser-agent",
+    "chrome-extension",
+    "provider-agnostic"
+  ]
+}

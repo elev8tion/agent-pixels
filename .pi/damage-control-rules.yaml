@@ -1,0 +1,24 @@
+# Pi Agentic Layer Damage Control Rules
+# Protects the sovereign Pi system when agentic-core is active
+
+protected_paths:
+  - ".pi/**"
+  - ".agentic-bootstrap-state.md"
+  - "MEMORY.md"
+  - "**/topics/*.md"
+
+blocked_commands:
+  - "rm -rf .pi"
+  - "rm -rf ~/.pi"
+  - "git reset --hard"
+  - "rm -rf node_modules"
+  - "sudo *"
+
+strategy: soft-continue-with-confirmation
+
+audit_log: true
+
+note: |
+  When agentic-core is active, be extra strict with destructive commands.
+  All changes must go through karpathy audit or heal chain.
+  Never delete or modify the agentic layer itself.

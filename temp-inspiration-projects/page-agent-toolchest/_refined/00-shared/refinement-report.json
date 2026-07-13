@@ -1,0 +1,127 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/00-shared",
+  "output": "/Users/kc/page-agent-toolchest/_refined/00-shared",
+  "files_created": 23,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/00-shared/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/00-shared/README.md",
+  "health": {
+    "score": 80,
+    "long_functions": [
+      {
+        "item_id": "updateInternalDeps",
+        "name": "updateInternalDeps",
+        "file": "/Users/kc/page-agent-toolchest/00-shared/scripts/sync-version.js",
+        "line_count": 11
+      }
+    ],
+    "duplications": [],
+    "coupling": []
+  },
+  "dead_code_count": 5,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-scripts",
+          "label": "scripts/",
+          "type": "module",
+          "itemCount": 5
+        }
+      },
+      {
+        "data": {
+          "id": "run",
+          "label": "run",
+          "type": "function",
+          "parent": "dir-scripts",
+          "file": "scripts/ci.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "isMainBranch",
+          "label": "isMainBranch",
+          "type": "function",
+          "parent": "dir-scripts",
+          "file": "scripts/ci.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "parallelTask",
+          "label": "parallelTask",
+          "type": "function",
+          "parent": "dir-scripts",
+          "file": "scripts/parallel-task.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "isInternalPackage",
+          "label": "isInternalPackage",
+          "type": "function",
+          "parent": "dir-scripts",
+          "file": "scripts/sync-version.js",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "updateInternalDeps",
+          "label": "updateInternalDeps",
+          "type": "function",
+          "parent": "dir-scripts",
+          "file": "scripts/sync-version.js",
+          "connections": 0
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "scripts",
+        "item_count": 5,
+        "items": [
+          {
+            "name": "isInternalPackage",
+            "type": "function",
+            "item_id": "isInternalPackage",
+            "file_path": "scripts/sync-version.js"
+          },
+          {
+            "name": "isMainBranch",
+            "type": "function",
+            "item_id": "isMainBranch",
+            "file_path": "scripts/ci.js"
+          },
+          {
+            "name": "parallelTask",
+            "type": "function",
+            "item_id": "parallelTask",
+            "file_path": "scripts/parallel-task.js"
+          },
+          {
+            "name": "run",
+            "type": "function",
+            "item_id": "run",
+            "file_path": "scripts/ci.js"
+          },
+          {
+            "name": "updateInternalDeps",
+            "type": "function",
+            "item_id": "updateInternalDeps",
+            "file_path": "scripts/sync-version.js"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 5,
+      "total_edges": 0,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

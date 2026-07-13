@@ -1,0 +1,679 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/02-page-controller",
+  "output": "/Users/kc/page-agent-toolchest/_refined/02-page-controller",
+  "files_created": 74,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/02-page-controller/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/02-page-controller/README.md",
+  "health": {
+    "score": 66,
+    "long_functions": [
+      {
+        "item_id": "flatTreeToString",
+        "name": "flatTreeToString",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/index.ts",
+        "line_count": 271
+      },
+      {
+        "item_id": "inputTextElement",
+        "name": "inputTextElement",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/actions.ts",
+        "line_count": 102
+      },
+      {
+        "item_id": "clickElement",
+        "name": "clickElement",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/actions.ts",
+        "line_count": 63
+      },
+      {
+        "item_id": "getFlatTree",
+        "name": "getFlatTree",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/index.ts",
+        "line_count": 55
+      },
+      {
+        "item_id": "getPageInfo",
+        "name": "getPageInfo",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/getPageInfo.ts",
+        "line_count": 42
+      },
+      {
+        "item_id": "getAllTextTillNextClickableElement",
+        "name": "getAllTextTillNextClickableElement",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/index.ts",
+        "line_count": 29
+      },
+      {
+        "item_id": "matchAttributes",
+        "name": "matchAttributes",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/index.ts",
+        "line_count": 24
+      },
+      {
+        "item_id": "getElementByIndex",
+        "name": "getElementByIndex",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/actions.ts",
+        "line_count": 20
+      },
+      {
+        "item_id": "isBackgroundDark",
+        "name": "isBackgroundDark",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 19
+      },
+      {
+        "item_id": "selectOptionElement",
+        "name": "selectOptionElement",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/actions.ts",
+        "line_count": 17
+      },
+      {
+        "item_id": "getElementTextMap",
+        "name": "getElementTextMap",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/index.ts",
+        "line_count": 17
+      },
+      {
+        "item_id": "hasDarkModeDataAttribute",
+        "name": "hasDarkModeDataAttribute",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 16
+      },
+      {
+        "item_id": "isMainContentBackgroundDark",
+        "name": "isMainContentBackgroundDark",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 16
+      },
+      {
+        "item_id": "isPageDark",
+        "name": "isPageDark",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 15
+      },
+      {
+        "item_id": "hasDarkModeClass",
+        "name": "hasDarkModeClass",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 15
+      },
+      {
+        "item_id": "getSelectorMap",
+        "name": "getSelectorMap",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/index.ts",
+        "line_count": 13
+      },
+      {
+        "item_id": "getLuminance",
+        "name": "getLuminance",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 13
+      },
+      {
+        "item_id": "scrollIntoViewIfNeeded",
+        "name": "scrollIntoViewIfNeeded",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/actions.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "isColorSchemeDark",
+        "name": "isColorSchemeDark",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "parseRgbColor",
+        "name": "parseRgbColor",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "movePointerToElement",
+        "name": "movePointerToElement",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/utils/index.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "blurLastClickedElement",
+        "name": "blurLastClickedElement",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/actions.ts",
+        "line_count": 10
+      },
+      {
+        "item_id": "cleanUpHighlights",
+        "name": "cleanUpHighlights",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/dom/index.ts",
+        "line_count": 10
+      },
+      {
+        "item_id": "isTextColorLight",
+        "name": "isTextColorLight",
+        "file": "/Users/kc/page-agent-toolchest/02-page-controller/src/mask/checkDarkMode.ts",
+        "line_count": 10
+      }
+    ],
+    "duplications": [
+      {
+        "item_a": "scrollVertically",
+        "item_b": "scrollHorizontally",
+        "item_a_id": "scrollVertically",
+        "item_b_id": "scrollHorizontally",
+        "similarity": 0.895
+      },
+      {
+        "item_a": "DEFAULT_VIEWPORT_EXPANSION",
+        "item_b": "resolveViewportExpansion",
+        "item_a_id": "DEFAULT_VIEWPORT_EXPANSION",
+        "item_b_id": "resolveViewportExpansion",
+        "similarity": 0.818
+      }
+    ],
+    "coupling": [
+      {
+        "item_id": "PageController",
+        "name": "PageController",
+        "score": 2,
+        "forward": 0,
+        "reverse": 2
+      },
+      {
+        "item_id": "patchAntd",
+        "name": "patchAntd",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "patchReact",
+        "name": "patchReact",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      }
+    ]
+  },
+  "dead_code_count": 46,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 47
+        }
+      },
+      {
+        "data": {
+          "id": "PageController",
+          "label": "PageController",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/PageController.ts",
+          "connections": 2
+        }
+      },
+      {
+        "data": {
+          "id": "patchAntd",
+          "label": "patchAntd",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/patches/antd.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "patchReact",
+          "label": "patchReact",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/patches/react.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "getElementByIndex",
+          "label": "getElementByIndex",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "blurLastClickedElement",
+          "label": "blurLastClickedElement",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "clickElement",
+          "label": "clickElement",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "inputTextElement",
+          "label": "inputTextElement",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "selectOptionElement",
+          "label": "selectOptionElement",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "scrollIntoViewIfNeeded",
+          "label": "scrollIntoViewIfNeeded",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "scrollVertically",
+          "label": "scrollVertically",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "scrollHorizontally",
+          "label": "scrollHorizontally",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/actions.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "getPageInfo",
+          "label": "getPageInfo",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/dom/getPageInfo.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "DEFAULT_VIEWPORT_EXPANSION",
+          "label": "DEFAULT_VIEWPORT_EXPANSION",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/dom/index.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "resolveViewportExpansion",
+          "label": "resolveViewportExpansion",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/dom/index.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "getFlatTree",
+          "label": "getFlatTree",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/dom/index.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "dir-src-more",
+          "label": "+32 more",
+          "type": "overflow",
+          "parent": "dir-src",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "source": "patchAntd",
+          "target": "PageController",
+          "edgeType": "type_reference",
+          "label": "PageController"
+        }
+      },
+      {
+        "data": {
+          "source": "patchReact",
+          "target": "PageController",
+          "edgeType": "type_reference",
+          "label": "PageController"
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "src",
+        "item_count": 47,
+        "items": [
+          {
+            "name": "DEFAULT_VIEWPORT_EXPANSION",
+            "type": "component",
+            "item_id": "DEFAULT_VIEWPORT_EXPANSION",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "PageController",
+            "type": "class",
+            "item_id": "PageController",
+            "file_path": "src/PageController.ts"
+          },
+          {
+            "name": "SimulatorMask",
+            "type": "class",
+            "item_id": "SimulatorMask",
+            "file_path": "src/mask/SimulatorMask.ts"
+          },
+          {
+            "name": "blurLastClickedElement",
+            "type": "function",
+            "item_id": "blurLastClickedElement",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "cleanUpHighlights",
+            "type": "function",
+            "item_id": "cleanUpHighlights",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "clickElement",
+            "type": "function",
+            "item_id": "clickElement",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "clickPointer",
+            "type": "function",
+            "item_id": "clickPointer",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "disablePassThrough",
+            "type": "function",
+            "item_id": "disablePassThrough",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "enablePassThrough",
+            "type": "function",
+            "item_id": "enablePassThrough",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "fixAntdSelect",
+            "type": "function",
+            "item_id": "fixAntdSelect",
+            "file_path": "src/patches/antd.ts"
+          },
+          {
+            "name": "flatTreeToString",
+            "type": "function",
+            "item_id": "flatTreeToString",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "getAllTextTillNextClickableElement",
+            "type": "function",
+            "item_id": "getAllTextTillNextClickableElement",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "getElementByIndex",
+            "type": "function",
+            "item_id": "getElementByIndex",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "getElementTextMap",
+            "type": "function",
+            "item_id": "getElementTextMap",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "getFlatTree",
+            "type": "function",
+            "item_id": "getFlatTree",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "getIframeOffset",
+            "type": "function",
+            "item_id": "getIframeOffset",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "getLuminance",
+            "type": "function",
+            "item_id": "getLuminance",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "getNativeValueSetter",
+            "type": "function",
+            "item_id": "getNativeValueSetter",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "getPageInfo",
+            "type": "function",
+            "item_id": "getPageInfo",
+            "file_path": "src/dom/getPageInfo.ts"
+          },
+          {
+            "name": "getSelectorMap",
+            "type": "function",
+            "item_id": "getSelectorMap",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "globToRegex",
+            "type": "function",
+            "item_id": "globToRegex",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "hasDarkModeClass",
+            "type": "function",
+            "item_id": "hasDarkModeClass",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "hasDarkModeDataAttribute",
+            "type": "function",
+            "item_id": "hasDarkModeDataAttribute",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "inputTextElement",
+            "type": "function",
+            "item_id": "inputTextElement",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "isAnchorElement",
+            "type": "function",
+            "item_id": "isAnchorElement",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "isBackgroundDark",
+            "type": "function",
+            "item_id": "isBackgroundDark",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "isColorDark",
+            "type": "function",
+            "item_id": "isColorDark",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "isColorSchemeDark",
+            "type": "function",
+            "item_id": "isColorSchemeDark",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "isHTMLElement",
+            "type": "function",
+            "item_id": "isHTMLElement",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "isInputElement",
+            "type": "function",
+            "item_id": "isInputElement",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "isMainContentBackgroundDark",
+            "type": "function",
+            "item_id": "isMainContentBackgroundDark",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "isPageDark",
+            "type": "function",
+            "item_id": "isPageDark",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "isSelectElement",
+            "type": "function",
+            "item_id": "isSelectElement",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "isTextAreaElement",
+            "type": "function",
+            "item_id": "isTextAreaElement",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "isTextColorLight",
+            "type": "function",
+            "item_id": "isTextColorLight",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "matchAttributes",
+            "type": "function",
+            "item_id": "matchAttributes",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "movePointerToElement",
+            "type": "function",
+            "item_id": "movePointerToElement",
+            "file_path": "src/utils/index.ts"
+          },
+          {
+            "name": "navigation",
+            "type": "function",
+            "item_id": "navigation",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "parseRgbColor",
+            "type": "function",
+            "item_id": "parseRgbColor",
+            "file_path": "src/mask/checkDarkMode.ts"
+          },
+          {
+            "name": "patchAntd",
+            "type": "function",
+            "item_id": "patchAntd",
+            "file_path": "src/patches/antd.ts"
+          },
+          {
+            "name": "patchReact",
+            "type": "function",
+            "item_id": "patchReact",
+            "file_path": "src/patches/react.ts"
+          },
+          {
+            "name": "resolveViewportExpansion",
+            "type": "function",
+            "item_id": "resolveViewportExpansion",
+            "file_path": "src/dom/index.ts"
+          },
+          {
+            "name": "scrollHorizontally",
+            "type": "function",
+            "item_id": "scrollHorizontally",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "scrollIntoViewIfNeeded",
+            "type": "function",
+            "item_id": "scrollIntoViewIfNeeded",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "scrollVertically",
+            "type": "function",
+            "item_id": "scrollVertically",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "selectOptionElement",
+            "type": "function",
+            "item_id": "selectOptionElement",
+            "file_path": "src/actions.ts"
+          },
+          {
+            "name": "waitFor",
+            "type": "function",
+            "item_id": "waitFor",
+            "file_path": "src/utils/index.ts"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 47,
+      "total_edges": 2,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

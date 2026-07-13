@@ -1,0 +1,42 @@
+<script>
+			{
+				const EXT_ID = '__EXT_ID__'
+				const wsPort = __WS_PORT__
+
+				const zh = {
+					connecting_title: '正在连接 Page Agent',
+					connecting_sub: '正在浏览器中打开 Hub…',
+					install_title: '需要安装浏览器插件',
+					install_sub: 'Page Agent 需要安装最新版浏览器插件才能运行。',
+					install_btn: '从 Chrome 应用商店安装',
+					tip_outdated: '如果插件版本过旧，请更新到最新版本。',
+					tip_other_browser: '如果该浏览器中未安装插件，请从装有插件的浏览器打开此页面。',
+					tip_refresh: '安装或更新后，请刷新此页面。',
+					link_docs: '文档',
+					link_issues: '问题反馈',
+				}
+
+				if (/^zh\b/i.test(navigator.language)) {
+					document.querySelectorAll('[data-i18n]').forEach((el) => {
+						const key = el.getAttribute('data-i18n')
+						if (zh[key]) el.textContent = zh[key]
+					})
+				}
+
+				const showInstall = () => {
+					document.getElementById('connecting').style.display = 'none'
+					document.getElementById('install').classList.add('show')
+				}
+
+				try {
+					if (!globalThis.chrome?.runtime?.sendMessage) {
+						showInstall()
+					} else {
+						chrome.runtime.sendMessage(EXT_ID, { type: 'OPEN_HUB', wsPort }, (response) => {
+							if (chrome.runtime.lastError || !response?.ok) showInstall()
+						})
+					}
+				} catch {
+					showInstall()
+				}
+			}

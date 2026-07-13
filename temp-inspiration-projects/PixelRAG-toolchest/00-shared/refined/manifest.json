@@ -1,0 +1,50 @@
+{
+  "version": "1.0",
+  "generator": "cleansed",
+  "generator_version": "1.0.0",
+  "generated": "2026-07-08T04:28:37.859545",
+  "source_directory": "/Users/kc/PixelRAG-toolchest/00-shared",
+  "output_directory": "/tmp/refine-00-shared",
+  "total_items": 2,
+  "raw_source_files": {
+    "count": 3,
+    "directory": "raw/",
+    "files": [
+      "raw/README.md",
+      "raw/src/pixelrag/__init__.py",
+      "raw/src/pixelrag/cli.py"
+    ]
+  },
+  "items": [
+    {
+      "name": "_usage",
+      "qualified_name": "_usage",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/00-shared/src/pixelrag/cli.py",
+      "source_line": 25,
+      "is_valid": true,
+      "validation_error": null
+    },
+    {
+      "name": "main",
+      "qualified_name": "main",
+      "type": "function",
+      "language": "python",
+      "source_file": "/Users/kc/PixelRAG-toolchest/00-shared/src/pixelrag/cli.py",
+      "source_line": 36,
+      "is_valid": true,
+      "validation_error": null
+    }
+  ],
+  "files_created": [
+    "/tmp/refine-00-shared/python/_usage.py",
+    "/tmp/refine-00-shared/python/main.py",
+    "/tmp/refine-00-shared/python/__init__.py",
+    "/tmp/refine-00-shared/requirements.txt",
+    "/tmp/refine-00-shared/raw/README.md",
+    "/tmp/refine-00-shared/raw/src/pixelrag/__init__.py",
+    "/tmp/refine-00-shared/raw/src/pixelrag/cli.py",
+    "/tmp/refine-00-shared/README.md"
+  ]
+}

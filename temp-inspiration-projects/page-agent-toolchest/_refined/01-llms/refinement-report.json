@@ -1,0 +1,439 @@
+{
+  "source": "/Users/kc/page-agent-toolchest/01-llms",
+  "output": "/Users/kc/page-agent-toolchest/_refined/01-llms",
+  "files_created": 43,
+  "manifest": "/Users/kc/page-agent-toolchest/_refined/01-llms/manifest.json",
+  "readme": "/Users/kc/page-agent-toolchest/_refined/01-llms/README.md",
+  "health": {
+    "score": 72,
+    "long_functions": [
+      {
+        "item_id": "modelPatch",
+        "name": "modelPatch",
+        "file": "/Users/kc/page-agent-toolchest/01-llms/src/utils.ts",
+        "line_count": 138
+      },
+      {
+        "item_id": "parseLLMConfig",
+        "name": "parseLLMConfig",
+        "file": "/Users/kc/page-agent-toolchest/01-llms/src/index.ts",
+        "line_count": 27
+      },
+      {
+        "item_id": "toolCallBody",
+        "name": "toolCallBody",
+        "file": "/Users/kc/page-agent-toolchest/01-llms/src/OpenAIClient.test.ts",
+        "line_count": 22
+      },
+      {
+        "item_id": "normalizeModelName",
+        "name": "normalizeModelName",
+        "file": "/Users/kc/page-agent-toolchest/01-llms/src/utils.ts",
+        "line_count": 16
+      },
+      {
+        "item_id": "getProvider",
+        "name": "getProvider",
+        "file": "/Users/kc/page-agent-toolchest/01-llms/src/utils.ts",
+        "line_count": 11
+      },
+      {
+        "item_id": "zodToOpenAITool",
+        "name": "zodToOpenAITool",
+        "file": "/Users/kc/page-agent-toolchest/01-llms/src/utils.ts",
+        "line_count": 10
+      }
+    ],
+    "duplications": [
+      {
+        "item_a": "abortError",
+        "item_b": "abortError",
+        "item_a_id": "abortError",
+        "item_b_id": "abortError@index.test",
+        "similarity": 0.867
+      }
+    ],
+    "coupling": [
+      {
+        "item_id": "makeLLM",
+        "name": "makeLLM",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      },
+      {
+        "item_id": "LLM",
+        "name": "LLM",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "ECHO_TOOL",
+        "name": "ECHO_TOOL",
+        "score": 1,
+        "forward": 0,
+        "reverse": 1
+      },
+      {
+        "item_id": "expectEchoToolCall",
+        "name": "expectEchoToolCall",
+        "score": 1,
+        "forward": 1,
+        "reverse": 0
+      }
+    ]
+  },
+  "dead_code_count": 23,
+  "architecture": {
+    "elements": [
+      {
+        "data": {
+          "id": "dir-src",
+          "label": "src/",
+          "type": "module",
+          "itemCount": 25
+        }
+      },
+      {
+        "data": {
+          "id": "makeLLM",
+          "label": "makeLLM",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/index.test.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "LLM",
+          "label": "LLM",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/index.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "ECHO_TOOL",
+          "label": "ECHO_TOOL",
+          "type": "component",
+          "parent": "dir-src",
+          "file": "src/live-models.test.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "expectEchoToolCall",
+          "label": "expectEchoToolCall",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/live-models.test.ts",
+          "connections": 1
+        }
+      },
+      {
+        "data": {
+          "id": "makeClient",
+          "label": "makeClient",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/OpenAIClient.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "makeTool",
+          "label": "makeTool",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/OpenAIClient.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "jsonResponse",
+          "label": "jsonResponse",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/OpenAIClient.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "toolCallBody",
+          "label": "toolCallBody",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/OpenAIClient.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "abortError",
+          "label": "abortError",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/OpenAIClient.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "getSentBody",
+          "label": "getSentBody",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/OpenAIClient.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "OpenAIClient",
+          "label": "OpenAIClient",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/OpenAIClient.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "InvokeError",
+          "label": "InvokeError",
+          "type": "class",
+          "parent": "dir-src",
+          "file": "src/errors.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "abortError@index.test",
+          "label": "abortError",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/index.test.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "withRetry",
+          "label": "withRetry",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/index.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "parseLLMConfig",
+          "label": "parseLLMConfig",
+          "type": "function",
+          "parent": "dir-src",
+          "file": "src/index.ts",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "id": "dir-src-more",
+          "label": "+10 more",
+          "type": "overflow",
+          "parent": "dir-src",
+          "connections": 0
+        }
+      },
+      {
+        "data": {
+          "source": "makeLLM",
+          "target": "LLM",
+          "edgeType": "type_reference",
+          "label": "LLM"
+        }
+      },
+      {
+        "data": {
+          "source": "expectEchoToolCall",
+          "target": "ECHO_TOOL",
+          "edgeType": "type_reference",
+          "label": "ECHO_TOOL"
+        }
+      }
+    ],
+    "modules": [
+      {
+        "directory": "src",
+        "item_count": 25,
+        "items": [
+          {
+            "name": "ALIYUN_ID_OVERRIDES",
+            "type": "component",
+            "item_id": "ALIYUN_ID_OVERRIDES",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "ECHO_TOOL",
+            "type": "component",
+            "item_id": "ECHO_TOOL",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "InvokeError",
+            "type": "class",
+            "item_id": "InvokeError",
+            "file_path": "src/errors.ts"
+          },
+          {
+            "name": "LLM",
+            "type": "class",
+            "item_id": "LLM",
+            "file_path": "src/index.ts"
+          },
+          {
+            "name": "OPENROUTER_ID_OVERRIDES",
+            "type": "component",
+            "item_id": "OPENROUTER_ID_OVERRIDES",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "OPENROUTER_VENDOR_SLUG",
+            "type": "component",
+            "item_id": "OPENROUTER_VENDOR_SLUG",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "OpenAIClient",
+            "type": "class",
+            "item_id": "OpenAIClient",
+            "file_path": "src/OpenAIClient.ts"
+          },
+          {
+            "name": "PROMPT",
+            "type": "component",
+            "item_id": "PROMPT",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "PROVIDERS",
+            "type": "component",
+            "item_id": "PROVIDERS",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "abortError",
+            "type": "function",
+            "item_id": "abortError",
+            "file_path": "src/OpenAIClient.test.ts"
+          },
+          {
+            "name": "abortError",
+            "type": "function",
+            "item_id": "abortError@index.test",
+            "file_path": "src/index.test.ts"
+          },
+          {
+            "name": "expectEchoToolCall",
+            "type": "function",
+            "item_id": "expectEchoToolCall",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "getProvider",
+            "type": "function",
+            "item_id": "getProvider",
+            "file_path": "src/utils.ts"
+          },
+          {
+            "name": "getSentBody",
+            "type": "function",
+            "item_id": "getSentBody",
+            "file_path": "src/OpenAIClient.test.ts"
+          },
+          {
+            "name": "jsonResponse",
+            "type": "function",
+            "item_id": "jsonResponse",
+            "file_path": "src/OpenAIClient.test.ts"
+          },
+          {
+            "name": "makeClient",
+            "type": "function",
+            "item_id": "makeClient",
+            "file_path": "src/OpenAIClient.test.ts"
+          },
+          {
+            "name": "makeLLM",
+            "type": "function",
+            "item_id": "makeLLM",
+            "file_path": "src/index.test.ts"
+          },
+          {
+            "name": "makeTool",
+            "type": "function",
+            "item_id": "makeTool",
+            "file_path": "src/OpenAIClient.test.ts"
+          },
+          {
+            "name": "modelPatch",
+            "type": "function",
+            "item_id": "modelPatch",
+            "file_path": "src/utils.ts"
+          },
+          {
+            "name": "normalizeModelName",
+            "type": "function",
+            "item_id": "normalizeModelName",
+            "file_path": "src/utils.ts"
+          },
+          {
+            "name": "parseLLMConfig",
+            "type": "function",
+            "item_id": "parseLLMConfig",
+            "file_path": "src/index.ts"
+          },
+          {
+            "name": "toOpenRouterModelId",
+            "type": "function",
+            "item_id": "toOpenRouterModelId",
+            "file_path": "src/live-models.test.ts"
+          },
+          {
+            "name": "toolCallBody",
+            "type": "function",
+            "item_id": "toolCallBody",
+            "file_path": "src/OpenAIClient.test.ts"
+          },
+          {
+            "name": "withRetry",
+            "type": "function",
+            "item_id": "withRetry",
+            "file_path": "src/index.ts"
+          },
+          {
+            "name": "zodToOpenAITool",
+            "type": "function",
+            "item_id": "zodToOpenAITool",
+            "file_path": "src/utils.ts"
+          }
+        ]
+      }
+    ],
+    "stats": {
+      "total_items": 25,
+      "total_edges": 2,
+      "total_modules": 1,
+      "cross_module_edges": 0
+    }
+  }
+}

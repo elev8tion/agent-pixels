@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agent Pixel</title>
+  <link rel="stylesheet" href="sidepanel.css" />
+</head>
+<body>
+  <!-- Premium Glass Navbar - 12px curved borders matching project -->
+  <div class="glass-navbar">
+    <div class="nav-brand">
+      <img src="assets/agentpixel-letters.png" alt="Agent Pixel" class="logo-letters" />
+    </div>
+    <div class="nav-right">
+      <div id="model-chip" class="model-chip" title="Current model">No model</div>
+      <div id="status-dot" class="status-dot idle" title="Status"></div>
+      <button id="settings-btn" class="nav-btn" title="Settings">⚙︎</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Hero / Empty state with full logo -->
+    <div id="empty-state" class="empty-state">
+      <img src="assets/agentpixel.png" alt="Agent Pixel" class="hero-logo" />
+      <div class="hero-text">
+        <h1>Agent Pixel</h1>
+        <p>Professional browser agent powered by your .pi models</p>
+      </div>
+    </div>
+
+    <!-- Current Model Info -->
+    <div id="model-info" class="card model-info hidden">
+      <div class="model-row">
+        <div>
+          <div class="label">Active Model</div>
+          <div id="active-model-name" class="model-name"></div>
+          <div id="active-model-meta" class="model-meta"></div>
+        </div>
+        <button id="change-model-btn" class="ghost-btn">Change</button>
+      </div>
+    </div>
+
+    <!-- Main Task Area -->
+    <div class="card main-task">
+      <div class="label">What should the agent do?</div>
+      <textarea id="prompt" placeholder="Summarize this page, find pricing, fill the form with X, compare products..."></textarea>
+
+      <div class="actions">
+        <button id="run-btn" class="primary-btn">Run Agent</button>
+        <button id="capture-btn" class="secondary-btn">Capture Tab</button>
+      </div>
+    </div>
+
+    <!-- Quick Tools -->
+    <div class="card">
+      <div class="label">Quick Tools</div>
+      <div class="quick-grid">
+        <button id="quick-click" class="quick-btn">Click first interactive</button>
+        <button id="quick-scroll" class="quick-btn">Scroll down</button>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <pre id="output" class="output">Connecting to Agent-Pixel server…</pre>
+  </div>
+
+  <!-- Professional Settings Modal -->
+  <div id="settings-modal" class="modal hidden">
+    <div class="modal-panel">
+      <div class="modal-header">
+        <div class="modal-title">
+          <img src="assets/agentpixel-letters.png" alt="" class="modal-logo" />
+          <span>Settings</span>
+        </div>
+        <button id="close-settings" class="close-btn">×</button>
+      </div>
+
+      <!-- .pi Models Section -->
+      <div class="section">
+        <div class="section-header">
+          <span>Your .pi Models</span>
+          <div class="pi-badge">Connected to Pi</div>
+        </div>
+
+        <div class="pi-actions">
+          <button id="sync-pi-btn" class="action-btn">Refresh from server</button>
+          <button id="import-json-btn" class="action-btn">Import models.json</button>
+        </div>
+
+        <div id="model-picker" class="model-picker">
+          <!-- Dynamically populated by JS (auto-loaded from the server) -->
+          <div class="picker-empty">Loading models…</div>
+        </div>
+
+        <div class="reasoning-row" id="reasoning-row" style="display:none">
+          <label>Reasoning Effort</label>
+          <div class="reasoning-pills" id="reasoning-pills">
+            <!-- populated by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Manual / Server Config -->
+      <div class="section">
+        <div class="section-header">Connection</div>
+
+        <div class="form-row">
+          <label>Server URL</label>
+          <input id="server-url" type="text" value="http://127.0.0.1:4317" />
+        </div>
+
+        <div class="form-row">
+          <label>Provider (fallback)</label>
+          <select id="provider-select">
+            <option value="mock">Mock / Offline</option>
+            <option value="openai">OpenAI</option>
+            <option value="anthropic">Anthropic</option>
+            <option value="deepseek">DeepSeek</option>
+            <option value="ollama">Ollama</option>
+            <option value="custom">Custom / .pi</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label>Model ID (manual)</label>
+          <input id="model-id" type="text" placeholder="e.g. deepseek-v4-pro or mlx-community/..." />
+        </div>
+
+        <div class="form-row">
+          <label>API Key (if required)</label>
+          <input id="api-key" type="password" placeholder="Leave blank for local / $ENV models" />
+        </div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="save-settings-btn" class="primary-btn">Save Configuration</button>
+      </div>
+
+      <div class="help">
+        Models load automatically from the Agent-Pixel server. Use “Refresh from server” if you changed your .pi config, or “Import models.json” when offline.
+      </div>
+    </div>
+  </div>
+
+  <script src="sidepanel.js"></script>
+</body>
+</html>

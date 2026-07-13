@@ -1,0 +1,7 @@
+<script>
+const queryInput = document.getElementById('query');
+const resultsDiv = document.getElementById('results');
+const statusDiv = document.getElementById('status');
+const searchBtn = document.getElementById('searchBtn');
+
+queryInput.addEventListener('keydown', e => { if (e.key === 'Enter') search(); });
