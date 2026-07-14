@@ -41,6 +41,100 @@
       </div>
     </div>
 
+    <!-- Start Here / Guided Workflow -->
+    <div class="card start-panel">
+      <div class="label">Start here</div>
+      <h2>Create a project from toolchests</h2>
+      <p class="hint">A toolchest is a folder of extracted reusable modules. Follow the guided path or load a demo library to learn the workflow.</p>
+      <div class="workflow-steps">
+        <div><span>1</span> Register a toolchest</div>
+        <div><span>2</span> Inspect modules</div>
+        <div><span>3</span> Add modules to blueprint</div>
+        <div><span>4</span> Preview export</div>
+      </div>
+      <div class="actions">
+        <button id="main-workflow-btn" class="primary-btn">Create project</button>
+        <button id="load-demo-btn" class="secondary-btn">Load demo library</button>
+      </div>
+    </div>
+
+    <div class="tab-strip" aria-label="Main workspace tabs">
+      <button class="tab active" data-tab="library">Library</button>
+      <button class="tab" data-tab="anatomy">Anatomy</button>
+      <button class="tab" data-tab="blueprint">Blueprint</button>
+      <button class="tab" data-tab="agents">Agents</button>
+      <button class="tab" data-tab="exports">Exports</button>
+    </div>
+
+    <div id="tab-library" class="workspace-tab">
+      <div class="card empty-card">
+        <div class="label">Library</div>
+        <h3>No toolchests yet</h3>
+        <p>Register a <strong>toolchest</strong> — a folder of extracted reusable modules, usually from /forge output — to begin.</p>
+        <div class="status-row"><span class="status connected">Demo ready</span><span class="status missing">No local paths</span></div>
+        <div class="actions"><button class="secondary-btn" data-action="register-toolchest">Register folder</button><button class="secondary-btn" data-action="load-demo">Load demo library</button></div>
+      </div>
+      <div class="term-grid">
+        <div><strong>Toolchest</strong><span>A folder of extracted reusable modules.</span></div>
+        <div><strong>Trade Routes</strong><span>Find useful connections between toolchests.</span></div>
+      </div>
+    </div>
+
+    <div id="tab-anatomy" class="workspace-tab hidden">
+      <div class="card empty-card">
+        <div class="label">Anatomy</div>
+        <h3>No modules selected</h3>
+        <p>Inspect modules, compare reuse fit, and identify dependencies before adding anything to a blueprint.</p>
+        <div class="module-compare">
+          <div><b>Auth module</b><span>Score 88 · Contract available · Best for backend/auth</span></div>
+          <div><b>UI primitive</b><span>Score 74 · Needs styles · Best for React UI</span></div>
+        </div>
+        <div class="actions"><button class="secondary-btn" data-action="compare-modules">Compare modules</button><button class="secondary-btn" data-action="add-to-blueprint">Add to blueprint</button></div>
+      </div>
+      <div class="term-grid"><div><strong>Assay</strong><span>Analyze quality and reuse potential.</span></div></div>
+    </div>
+
+    <div id="tab-blueprint" class="workspace-tab hidden">
+      <div class="card empty-card">
+        <div class="label">Blueprint</div>
+        <h3>Blueprint empty</h3>
+        <p>A <strong>blueprint</strong> is your selected modules for a new project. Add modules from Anatomy or drag them here.</p>
+        <div class="next-actions"><button data-action="run-advisor">Run composition advisor</button><button data-action="generate-context">Generate context pack</button><button data-action="export-project">Export as real project</button></div>
+      </div>
+      <div class="term-grid"><div><strong>Mint</strong><span>Save this blueprint as a reusable library item.</span></div></div>
+    </div>
+
+    <div id="tab-agents" class="workspace-tab hidden">
+      <div class="card agent-panel">
+        <div class="label">Agent Actions</div>
+        <div class="agent-status"><span>Provider: /pi-everywhere</span><span>Last run: none</span><span>Confidence: pending</span></div>
+        <div class="agent-actions">
+          <button data-action="analyze-toolchest">Analyze this toolchest</button>
+          <button data-action="recommend-modules">Recommend modules</button>
+          <button data-action="explain-module">Explain this module</button>
+          <button data-action="find-missing">Find missing pieces</button>
+          <button data-action="generate-docs">Generate project docs</button>
+          <button data-action="audit-blueprint">Audit blueprint</button>
+        </div>
+        <details><summary>Raw result</summary><pre>No agent run yet.</pre></details>
+      </div>
+    </div>
+
+    <div id="tab-exports" class="workspace-tab hidden">
+      <div class="card export-preview">
+        <div class="label">Export Preview</div>
+        <h3>Preview before generating</h3>
+        <ul>
+          <li>Folder tree: pending blueprint</li>
+          <li>Selected modules: none yet</li>
+          <li>Naming conflicts: none detected</li>
+          <li>Missing contracts/readmes: unknown</li>
+          <li>Suggested dependencies: pending assay</li>
+        </ul>
+        <div class="actions"><button class="primary-btn" data-action="generate-project">Generate project</button><button class="secondary-btn" data-action="open-export">Open exported folder</button></div>
+      </div>
+    </div>
+
     <!-- Main Task Area -->
     <div class="card main-task">
       <div class="label">What should the agent do?</div>
@@ -58,6 +152,8 @@
       <div class="quick-grid">
         <button id="quick-click" class="quick-btn">Click first interactive</button>
         <button id="quick-scroll" class="quick-btn">Scroll down</button>
+        <button class="quick-btn" data-action="run-assay">Run assay</button>
+        <button class="quick-btn" data-action="preview-export">Preview export</button>
       </div>
     </div>
 

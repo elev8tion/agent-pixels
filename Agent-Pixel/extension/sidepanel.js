@@ -18,6 +18,45 @@ function log(msg) {
   out.textContent = typeof msg === 'string' ? msg : JSON.stringify(msg, null, 2);
 }
 
+function successCard(title, summary, next = []) {
+  const lines = [`✅ ${title}`, '', summary];
+  if (next.length) lines.push('', 'Next actions:', ...next.map(item => `• ${item}`));
+  log(lines.join('\n'));
+}
+
+function switchWorkspaceTab(name) {
+  $$('.tab').forEach(btn => btn.classList.toggle('active', btn.dataset.tab === name));
+  $$('.workspace-tab').forEach(panel => panel.classList.add('hidden'));
+  const active = $(`#tab-${name}`);
+  if (active) active.classList.remove('hidden');
+}
+
+function handleWorkspaceAction(action) {
+  const messages = {
+    'register-toolchest': ['Register toolchest', 'Choose a /forge output folder in the full app flow. Status checks should confirm connected, changed on disk, or missing.', ['Run assay', 'Inspect anatomy', 'Add core modules to blueprint']],
+    'load-demo': ['Demo library loaded', 'A sample toolchest workflow is now visible: Library → Anatomy → Blueprint → Exports.', ['Compare modules', 'Add demo module to blueprint']],
+    'compare-modules': ['Module comparison ready', 'Comparison should show reusability score, contract availability, dependencies, best-fit role, and transplant warnings.', ['Pick strongest module', 'Run assay for risk']],
+    'add-to-blueprint': ['Added to blueprint', 'The selected module was queued for the blueprint. Conflicts and missing contracts will appear in Export Preview.', ['Run composition advisor', 'Preview export']],
+    'run-advisor': ['Composition advisor queued', 'The agent should inspect selected modules, identify conflicts, and suggest missing pieces.', ['Generate context pack', 'Audit blueprint']],
+    'generate-context': ['Context pack planned', 'Project docs, contracts, and setup prompts will be generated from the current blueprint.', ['Preview export']],
+    'export-project': ['Export preview opened', 'Review folder tree, selected modules, naming conflicts, missing readmes, and dependencies before generating.', ['Click Generate project']],
+    'generate-project': ['Project generation ready', 'Final export is gated behind preview so local file changes stay understandable and reversible.', ['Open exported folder', 'Copy next prompt', 'Run setup command']],
+    'open-export': ['Open exported folder', 'No exported folder exists yet. Generate a project first, then this action should open the output path.', ['Generate project']],
+    'run-assay': ['Assay explained', 'Assay analyzes module quality, reuse potential, contracts, dependencies, and transplant risk.', ['Compare modules']],
+    'preview-export': ['Export preview opened', 'Use the Exports tab to review the generated file plan before final export.', ['Generate project']],
+    'analyze-toolchest': ['Agent action: analyze toolchest', 'Uses /pi-everywhere to inspect modules, contracts, health, and local path status.', ['Recommend modules']],
+    'recommend-modules': ['Agent action: recommend modules', 'Ranks modules by fit, reusability score, dependencies, and implementation role.', ['Add top modules to blueprint']],
+    'explain-module': ['Agent action: explain module', 'Explains purpose, inputs/outputs, contracts, and transplant difficulty.', ['Compare module alternatives']],
+    'find-missing': ['Agent action: find missing pieces', 'Detects absent contracts, readmes, dependencies, setup docs, and integration glue.', ['Generate project docs']],
+    'generate-docs': ['Agent action: generate docs', 'Creates blueprint context, setup notes, and handoff prompts for the exported project.', ['Audit blueprint']],
+    'audit-blueprint': ['Agent action: audit blueprint', 'Checks selected modules for conflicts, missing files, local path issues, and export risk.', ['Preview export']]
+  };
+  const [title, summary, next] = messages[action] || ['Action noted', `Action: ${action}`, []];
+  if (action === 'export-project' || action === 'preview-export') switchWorkspaceTab('exports');
+  if (action === 'load-demo') switchWorkspaceTab('anatomy');
+  successCard(title, summary, next);
+}
+
 function setStatus(type = 'idle') {
   const dot = $('#status-dot');
   dot.className = `status-dot ${type}`;
@@ -340,6 +379,14 @@ async function init() {
   updateModelChip();
 
   // Wire UI
+  $$('.tab').forEach(btn => btn.addEventListener('click', () => switchWorkspaceTab(btn.dataset.tab)));
+  $$('[data-action]').forEach(btn => btn.addEventListener('click', () => handleWorkspaceAction(btn.dataset.action)));
+  $('#main-workflow-btn').addEventListener('click', () => {
+    switchWorkspaceTab('library');
+    successCard('Guided workflow started', 'Follow Library → Anatomy → Blueprint → Agents → Exports to create a project from toolchests.', ['Register a toolchest', 'Load demo library']);
+  });
+  $('#load-demo-btn').addEventListener('click', () => handleWorkspaceAction('load-demo'));
+
   $('#settings-btn').addEventListener('click', openSettings);
   $('#close-settings').addEventListener('click', closeSettings);
   $('#save-settings-btn').addEventListener('click', saveSettings);
