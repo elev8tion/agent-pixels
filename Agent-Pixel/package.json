@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Agent-Pixel: pure Pi agentic implementation complete. All custom code deprecated. Use agentic-core exclusively for sovereign operation.", 
+  "description": "Agent-Pixel: pure Pi Everywhere implementation. Project-local Pi layers are deprecated; use the global ~/.pi instance via /pi-everywhere.",
   "scripts": {
-    "dev": "echo 'Custom code fully deprecated. Run `agentic-core` for full sovereign Pi agentic system.'",
-    "agentic-core": "echo 'Agentic layer active - routing to Pi orchestrator (see .pi/agent/skills/agentic-core/)'")
+    "dev": "echo 'Custom project Pi code is deprecated. Run `/pi-everywhere` to use the global ~/.pi instance.'",
+    "pi-everywhere": "echo 'Pi Everywhere active - use /pi-everywhere or agentic-core from the global ~/.pi instance.'"
   },
   "engines": {
     "node": ">=20"

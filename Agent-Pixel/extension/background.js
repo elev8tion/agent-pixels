@@ -1,5 +1,6 @@
 /**
- * Agent-Pixel Chrome Extension — Pure Pi agentic. Uses pi-bowser-browser skill for browser control and visual-rag for RAG. Polling to deprecated custom Node server (server.mjs) REMOVED. agentic-core is sole entrypoint.
+ * Agent-Pixel Chrome Extension — Pi Everywhere mode.
+ * Project-local Pi glue is deprecated; use the global ~/.pi instance through /pi-everywhere.
  */
 
 const DEFAULT_SERVER = 'http://127.0.0.1:4317';
@@ -85,10 +86,9 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   return true;
 });
 
-// === Pi-Native Browser Bridge (replaces polling) ===
-// Uses pi-bowser-browser skill (Chrome control, screenshots, DOM observe) orchestrated by agentic-core.
-// Custom server polling and /api/agent/* endpoints fully deprecated per migration.
-// Visual RAG now handled exclusively by .pi/agent/skills/visual-rag/SKILL.md
+// === Pi Everywhere Browser Bridge ===
+// Uses global ~/.pi skills after /pi-everywhere activation.
+// Custom project-local Pi implementations and /api/agent/* polling are deprecated.
 
 // Pi-native action handler (no server, direct Chrome APIs + skill delegation)
 async function handlePiBrowserAction(message) {
@@ -113,47 +113,28 @@ async function handlePiBrowserAction(message) {
 
 loadSettings();
 
-// Register listener for Pi/agentic-core dispatched actions (replaces pollForActions interval)
+// Register listener for Pi Everywhere dispatched actions (replaces pollForActions interval)
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type && (message.type.startsWith('PI_BROWSER_') || message.source === 'agentic-core')) {
+  if (message.type && (message.type.startsWith('PI_BROWSER_') || message.source === 'pi-everywhere' || message.source === 'agentic-core')) {
     handlePiBrowserAction(message).then(sendResponse);
     return true; // async
   }
 });
 
-// Agentic enable layer — matches the original Page-Agent replication target
-// This is the primary implementation layer ( /agentic-enable )
-async function enableAgenticLayer() {
-  try {
-    const res = await fetch(`${serverUrl.replace(/\/$/, '')}/api/agentic-enable`, {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', 'x-agent-pixel-extension': '1' },
-      body: JSON.stringify({ mode: 'full', visualRAG: true })
-    });
-    const config = await res.json();
-    console.log('[Agentic] Layer enabled:', config.message);
-    // Switch to full MultiPageAgent-style controller (original Page-Agent pattern)
-    // Future: integrate RemotePageController + TabsController from original
-    chrome.storage.local.set({ agenticMode: true, agenticConfig: config });
-    return config;
-  } catch (e) {
-    console.error('[Agentic] Enable failed:', e);
-    return { enabled: false, error: e.message };
-  }
-}
-
-// Listen for agentic enable from sidepanel or UI
+// Pi Everywhere status. No project-local /agentic-enable bootstrap is used.
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === 'AGENTIC_ENABLE') {
-    enableAgenticLayer().then(sendResponse);
-    return true; // async response
-  }
   if (message.type === 'GET_AGENTIC_STATUS') {
-    chrome.storage.local.get(['agenticMode', 'agenticConfig'], (data) => {
-      sendResponse({ enabled: !!data.agenticMode, config: data.agenticConfig });
+    chrome.storage.local.get(['piEverywhereMode', 'piEverywhereConfig'], (data) => {
+      sendResponse({ enabled: !!data.piEverywhereMode, config: data.piEverywhereConfig || { entrypoint: '/pi-everywhere', globalPi: '~/.pi' } });
     });
+    return true;
+  }
+  if (message.type === 'PI_EVERYWHERE_ACTIVATE') {
+    const config = { entrypoint: '/pi-everywhere', globalPi: '~/.pi', projectLocalPiDeprecated: true };
+    chrome.storage.local.set({ piEverywhereMode: true, piEverywhereConfig: config });
+    sendResponse({ enabled: true, config });
     return true;
   }
 });
 
-console.log('[Agent-Pixel Pi] Background ready — pi-bowser-browser + visual-rag + agentic-core. Custom server polling fully deprecated. Pure Pi-native implementation active.');
+console.log('[Agent-Pixel Pi] Background ready — Pi Everywhere mode. Use /pi-everywhere and global ~/.pi; project-local Pi implementation deprecated.');

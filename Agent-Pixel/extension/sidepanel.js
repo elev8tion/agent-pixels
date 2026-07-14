@@ -2,8 +2,8 @@ const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 let state = {
-  // serverUrl deprecated; now pure Pi via agentic-core + visual-rag + pi-bowser-browser
-  serverUrl: 'http://127.0.0.1:4317', // kept for backward compat only
+  // serverUrl is legacy-only. Agent-Pixel now uses /pi-everywhere and the global ~/.pi instance.
+  serverUrl: 'http://127.0.0.1:4317', // legacy fallback only
   provider: 'mock',
   model: null,
   apiKey: null,
@@ -47,9 +47,8 @@ function updateModelChip() {
   }
 }
 
-// ===== Model loading (Pi-native via .pi config + agentic-core) =====
-// Now prefers Pi models. Legacy serverUrl kept for compat but custom Node server deprecated.
-// Uses visual-rag skill for memory and pi-bowser-browser for actions.
+// ===== Model loading (Pi Everywhere via global ~/.pi) =====
+// Project-local Pi implementations are deprecated. Legacy serverUrl remains only for archived fallback UI.
 // Entry shape: { id, name, providerKey, modelId, source, configured, reasoning, thinkingLevels }
 function escapeHtml(s = '') {
   return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
@@ -134,7 +133,7 @@ function autoSelectDefault() {
     selectModel(choice.id, { persist: true, silent: true });
     log(`${state.modelList.length} models loaded · using ${state.model.split('/').pop()} (tap the chip to change)`);
   } else {
-    log('No models available on the server.');
+    log('No models available. Use /pi-everywhere, then import ~/.pi/agent/models.json if needed.');
   }
 }
 
@@ -151,7 +150,7 @@ async function persistConfig() {
 function renderModelPicker() {
   const container = $('#model-picker');
   if (!state.modelList || !state.modelList.length) {
-    container.innerHTML = `<div class="picker-empty">No models found. Check the Agent-Pixel server.</div>`;
+    container.innerHTML = `<div class="picker-empty">No models found. Activate /pi-everywhere or import ~/.pi/agent/models.json.</div>`;
     return;
   }
   const groups = new Map();
@@ -242,8 +241,7 @@ async function syncFromLocalPi() {
     if (!state.model) autoSelectDefault();
     log(`Synced ${state.modelList.length} models from your .pi`);
   } catch (e) {
-    log('Legacy sync unavailable — using the Agent-Pixel server instead.');
-    loadModelsFromServer();
+    log('Legacy sync unavailable. Use /pi-everywhere as the primary project entrypoint, or import ~/.pi/agent/models.json.');
   } finally {
     btn.textContent = orig;
     btn.disabled = false;
@@ -376,8 +374,7 @@ async function init() {
     }
   });
 
-  // Auto-load models from the Agent-Pixel server the moment the panel opens —
-  // no manual Sync step required. If a model was already chosen, we keep it.
+  // Legacy auto-load remains for archived fallback only. Primary project operation is /pi-everywhere.
   await loadModelsFromServer();
   if (state.modelList.length) {
     if (state.model) { updateModelChip(); renderReasoning(currentModelEntry()); }
@@ -385,7 +382,7 @@ async function init() {
       ? `${state.modelList.length} models ready · using ${state.model.split('/').pop()}`
       : `${state.modelList.length} models ready. Pick one in Settings →.`);
   } else {
-    log('Pi agentic system active with agentic-core as only entrypoint. Custom server deprecated; visual-rag skill loaded at ' + state.serverUrl + '.\nStart it with: npm run dev');
+    log('Pi Everywhere is the primary entrypoint. Run /pi-everywhere in this project to use global ~/.pi. Project-local Pi/server implementation is deprecated.');
   }
 }
 

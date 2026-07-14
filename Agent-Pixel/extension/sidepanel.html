@@ -25,7 +25,7 @@
       <img src="assets/agentpixel.png" alt="Agent Pixel" class="hero-logo" />
       <div class="hero-text">
         <h1>Agent Pixel</h1>
-        <p>Professional browser agent powered by your .pi models</p>
+        <p>Professional browser agent powered by /pi-everywhere and your global ~/.pi</p>
       </div>
     </div>
 
@@ -62,7 +62,7 @@
     </div>
 
     <!-- Output -->
-    <pre id="output" class="output">Connecting to Agent-Pixel server…</pre>
+    <pre id="output" class="output">Pi Everywhere mode — use /pi-everywhere in this project.</pre>
   </div>
 
   <!-- Professional Settings Modal -->
@@ -79,12 +79,12 @@
       <!-- .pi Models Section -->
       <div class="section">
         <div class="section-header">
-          <span>Your .pi Models</span>
-          <div class="pi-badge">Connected to Pi</div>
+          <span>Global ~/.pi Models</span>
+          <div class="pi-badge">/pi-everywhere</div>
         </div>
 
         <div class="pi-actions">
-          <button id="sync-pi-btn" class="action-btn">Refresh from server</button>
+          <button id="sync-pi-btn" class="action-btn">Legacy refresh</button>
           <button id="import-json-btn" class="action-btn">Import models.json</button>
         </div>
 
@@ -138,7 +138,7 @@
       </div>
 
       <div class="help">
-        Models load automatically from the Agent-Pixel server. Use “Refresh from server” if you changed your .pi config, or “Import models.json” when offline.
+        Primary mode is /pi-everywhere using the global ~/.pi instance. Legacy server controls remain only for archived fallback; import ~/.pi/agent/models.json if needed.
       </div>
     </div>
   </div>
