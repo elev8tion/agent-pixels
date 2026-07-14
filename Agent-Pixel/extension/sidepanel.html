@@ -180,13 +180,13 @@
         </div>
 
         <div class="pi-actions">
-          <button id="sync-pi-btn" class="action-btn">Legacy refresh</button>
+          <button id="activate-pi-btn" class="action-btn">Activate Pi Everywhere</button>
           <button id="import-json-btn" class="action-btn">Import models.json</button>
         </div>
 
         <div id="model-picker" class="model-picker">
-          <!-- Dynamically populated by JS (auto-loaded from the server) -->
-          <div class="picker-empty">Loading models…</div>
+          <!-- Dynamically populated from imported ~/.pi/agent/models.json -->
+          <div class="picker-empty">Import models.json to pick a model in the panel.</div>
         </div>
 
         <div class="reasoning-row" id="reasoning-row" style="display:none">
@@ -197,35 +197,18 @@
         </div>
       </div>
 
-      <!-- Manual / Server Config -->
+      <!-- Pi Everywhere Panel Config -->
       <div class="section">
-        <div class="section-header">Connection</div>
+        <div class="section-header">Panel preferences</div>
 
         <div class="form-row">
-          <label>Server URL</label>
-          <input id="server-url" type="text" value="http://127.0.0.1:4317" />
+          <label>Model ID (optional)</label>
+          <input id="model-id" type="text" placeholder="Host default, or provider/model from ~/.pi" />
         </div>
 
         <div class="form-row">
-          <label>Provider (fallback)</label>
-          <select id="provider-select">
-            <option value="mock">Mock / Offline</option>
-            <option value="openai">OpenAI</option>
-            <option value="anthropic">Anthropic</option>
-            <option value="deepseek">DeepSeek</option>
-            <option value="ollama">Ollama</option>
-            <option value="custom">Custom / .pi</option>
-          </select>
-        </div>
-
-        <div class="form-row">
-          <label>Model ID (manual)</label>
-          <input id="model-id" type="text" placeholder="e.g. deepseek-v4-pro or mlx-community/..." />
-        </div>
-
-        <div class="form-row">
-          <label>API Key (if required)</label>
-          <input id="api-key" type="password" placeholder="Leave blank for local / $ENV models" />
+          <label>API Key override (optional)</label>
+          <input id="api-key" type="password" placeholder="Prefer keys from global ~/.pi or environment" />
         </div>
       </div>
 
@@ -234,7 +217,7 @@
       </div>
 
       <div class="help">
-        Primary mode is /pi-everywhere using the global ~/.pi instance. Legacy server controls remain only for archived fallback; import ~/.pi/agent/models.json if needed.
+        Primary mode is /pi-everywhere using the global ~/.pi instance. Import ~/.pi/agent/models.json only if you want model selection displayed inside this panel.
       </div>
     </div>
   </div>

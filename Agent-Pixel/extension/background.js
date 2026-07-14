@@ -1,140 +1,143 @@
 /**
  * Agent-Pixel Chrome Extension — Pi Everywhere mode.
- * Project-local Pi glue is deprecated; use the global ~/.pi instance through /pi-everywhere.
+ * Project-local Pi glue is deprecated; active work routes through a single
+ * Pi Everywhere dispatch / browser-action contract.
  */
 
-const DEFAULT_SERVER = 'http://127.0.0.1:4317';
-let serverUrl = DEFAULT_SERVER;
-let currentProvider = 'mock';
-
-let pendingAction = null;           // { id, tool, args, tabId, timestamp }
+let currentProvider = 'pi-everywhere';
+let currentModel = null;
+let reasoningEffort = 'medium';
 let lastResult = null;
 
 async function loadSettings() {
-  const data = await chrome.storage.sync.get(['serverUrl', 'provider', 'model']);
-  if (data.serverUrl) serverUrl = data.serverUrl;
-  if (data.provider) currentProvider = data.provider;
-  if (data.model) window.currentModel = data.model;
+  const data = await chrome.storage.sync.get(['provider', 'model', 'reasoningEffort']);
+  currentProvider = data.provider || 'pi-everywhere';
+  currentModel = data.model || null;
+  reasoningEffort = data.reasoningEffort || 'medium';
 }
 
 chrome.runtime.onInstalled.addListener(() => {
   chrome.sidePanel.setPanelBehavior({ openPanelOnActionClick: true }).catch(() => {});
 });
 
+async function getActiveTab() {
+  const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+  if (!tab?.id) throw new Error('No active tab');
+  return tab;
+}
+
+async function captureActiveTab() {
+  const tab = await getActiveTab();
+  const screenshotDataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: 'png' });
+  const observation = await chrome.tabs.sendMessage(tab.id, { type: 'AGENT_PIXEL_OBSERVE_DOM' })
+    .then(r => r?.observation || null)
+    .catch(() => null);
+
+  return {
+    success: true,
+    source: 'browser-action',
+    action: 'capture_current_tab',
+    url: tab.url,
+    title: tab.title,
+    screenshotDataUrl,
+    observation,
+    domSummary: observation ? JSON.stringify(observation).slice(0, 4000) : ''
+  };
+}
+
+async function executeBrowserAction(tool, args = {}) {
+  const tab = await getActiveTab();
+  if (tool === 'capture_current_tab' || tool === 'observe_current_tab') return captureActiveTab();
+  if (tool === 'open_tab') {
+    if (!args.url) throw new Error('open_tab requires args.url');
+    const opened = await chrome.tabs.create({ url: args.url });
+    return { success: true, source: 'browser-action', tool, tabId: opened.id, url: opened.url };
+  }
+  return chrome.tabs.sendMessage(tab.id, {
+    type: 'AGENT_PIXEL_EXECUTE',
+    tool,
+    args
+  }).catch(e => ({ success: false, source: 'browser-action', tool, error: e.message }));
+}
+
+async function handlePiEverywhereDispatch(message) {
+  await loadSettings();
+
+  const action = message.action || message.tool || message.intent || message.type;
+  const payload = message.payload || {};
+  const tool = message.tool || payload.tool;
+  const args = message.args || payload.args || {};
+
+  let result;
+  if (action === 'capture_current_tab' || action === 'CAPTURE' || message.type === 'AGENT_PIXEL_CAPTURE_ACTIVE_TAB') {
+    result = await captureActiveTab();
+  } else if (action === 'browser_action' || action === 'execute_browser_action' || message.type === 'AGENT_PIXEL_EXECUTE_DIRECT' || tool) {
+    result = await executeBrowserAction(tool, args);
+  } else if (action === 'chat' || action === 'run_agent' || message.type === 'AGENT_PIXEL_CHAT') {
+    result = {
+      success: false,
+      pendingHostIntegration: true,
+      source: 'pi-everywhere-dispatch',
+      action,
+      error: 'Pi Everywhere host dispatch is not connected in this extension runtime. Use /pi-everywhere host integration to handle agent/model requests.',
+      request: {
+        message: message.message || payload.message || '',
+        provider: currentProvider,
+        model: message.model || payload.model || currentModel,
+        reasoningEffort: message.reasoningEffort || payload.reasoningEffort || reasoningEffort
+      }
+    };
+  } else {
+    result = {
+      success: false,
+      pendingHostIntegration: true,
+      source: 'pi-everywhere-dispatch',
+      action,
+      error: 'No Pi Everywhere host handler is connected for this action.',
+      payload
+    };
+  }
+
+  lastResult = { ...result, timestamp: Date.now() };
+  return result;
+}
+
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   (async () => {
-    await loadSettings();
-
-    // === Capture (existing) ===
-    if (message?.type === 'AGENT_PIXEL_CAPTURE_ACTIVE_TAB') {
-      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if (!tab?.id) throw new Error('No active tab');
-
-      const screenshotDataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: 'png' });
-      const domSummary = await chrome.tabs.sendMessage(tab.id, { type: 'AGENT_PIXEL_OBSERVE_DOM' })
-        .then(r => r?.observation ? JSON.stringify(r.observation).slice(0, 4000) : '')
-        .catch(() => '');
-
-      const payload = {
-        url: tab.url,
-        title: tab.title,
-        screenshotDataUrl,
-        domSummary,
-        source: 'chrome-extension',
-        metadata: { tabId: tab.id }
-      };
-
-      const res = await fetch(`${serverUrl.replace(/\/$/, '')}/api/captures`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-agent-pixel-extension': '1' },
-        body: JSON.stringify(payload),
+    if (message?.type === 'GET_AGENTIC_STATUS') {
+      const data = await chrome.storage.local.get(['piEverywhereMode', 'piEverywhereConfig']);
+      sendResponse({
+        enabled: !!data.piEverywhereMode,
+        config: data.piEverywhereConfig || { entrypoint: '/pi-everywhere', globalPi: '~/.pi' },
+        lastResult
       });
-      sendResponse(await res.json());
       return;
     }
 
-    // === Chat (existing) ===
-    if (message?.type === 'AGENT_PIXEL_CHAT') {
-      const res = await fetch(`${serverUrl.replace(/\/$/, '')}/api/chat`, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json', 'x-agent-pixel-extension': '1' },
-        body: JSON.stringify({ 
-          provider: currentProvider, 
-          model: message.model,
-          message: message.message,
-          reasoningEffort: message.reasoningEffort
-        }),
-      });
-      sendResponse(await res.json());
+    if (message?.type === 'PI_EVERYWHERE_ACTIVATE') {
+      const config = { entrypoint: '/pi-everywhere', globalPi: '~/.pi', projectLocalPiDeprecated: true };
+      await chrome.storage.local.set({ piEverywhereMode: true, piEverywhereConfig: config });
+      sendResponse({ enabled: true, config });
       return;
     }
 
-    // === Real action execution from sidepanel quick actions (optional) ===
-    if (message?.type === 'AGENT_PIXEL_EXECUTE_DIRECT') {
-      const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-      if (!tab?.id) return sendResponse({ success: false, error: 'No tab' });
+    const isDispatch = message?.type === 'PI_EVERYWHERE_DISPATCH'
+      || message?.type === 'AGENT_PIXEL_CAPTURE_ACTIVE_TAB'
+      || message?.type === 'AGENT_PIXEL_CHAT'
+      || message?.type === 'AGENT_PIXEL_EXECUTE_DIRECT'
+      || message?.source === 'pi-everywhere'
+      || message?.source === 'agentic-core'
+      || (typeof message?.type === 'string' && message.type.startsWith('PI_BROWSER_'));
 
-      const result = await chrome.tabs.sendMessage(tab.id, {
-        type: 'AGENT_PIXEL_EXECUTE',
-        tool: message.tool,
-        args: message.args
-      }).catch(e => ({ success: false, error: e.message }));
-
-      sendResponse(result);
+    if (isDispatch) {
+      sendResponse(await handlePiEverywhereDispatch(message));
+      return;
     }
+
+    sendResponse({ success: false, error: 'Unknown background message type' });
   })().catch(err => sendResponse({ success: false, error: err.message }));
   return true;
 });
 
-// === Pi Everywhere Browser Bridge ===
-// Uses global ~/.pi skills after /pi-everywhere activation.
-// Custom project-local Pi implementations and /api/agent/* polling are deprecated.
-
-// Pi-native action handler (no server, direct Chrome APIs + skill delegation)
-async function handlePiBrowserAction(message) {
-  try {
-    await loadSettings();
-    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
-    if (!tab?.id) return { success: false, error: 'No active tab' };
-
-    // Direct execution for capture/observe; pi-bowser-browser routes complex agent loops
-    if (message.type === 'CAPTURE' || message.tool === 'capture_current_tab') {
-      const screenshotDataUrl = await chrome.tabs.captureVisibleTab(tab.windowId, { format: 'png' });
-      const domSummary = await chrome.tabs.sendMessage(tab.id, { type: 'AGENT_PIXEL_OBSERVE_DOM' })
-        .then(r => r?.observation ? JSON.stringify(r.observation).slice(0, 4000) : 'No DOM summary')
-        .catch(() => 'DOM observe failed');
-      return { success: true, screenshotDataUrl, domSummary, url: tab.url, title: tab.title };
-    }
-    return chrome.tabs.sendMessage(tab.id, message).catch(e => ({ success: false, error: e.message }));
-  } catch (e) {
-    return { success: false, error: e.message };
-  }
-}
-
 loadSettings();
-
-// Register listener for Pi Everywhere dispatched actions (replaces pollForActions interval)
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type && (message.type.startsWith('PI_BROWSER_') || message.source === 'pi-everywhere' || message.source === 'agentic-core')) {
-    handlePiBrowserAction(message).then(sendResponse);
-    return true; // async
-  }
-});
-
-// Pi Everywhere status. No project-local /agentic-enable bootstrap is used.
-chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.type === 'GET_AGENTIC_STATUS') {
-    chrome.storage.local.get(['piEverywhereMode', 'piEverywhereConfig'], (data) => {
-      sendResponse({ enabled: !!data.piEverywhereMode, config: data.piEverywhereConfig || { entrypoint: '/pi-everywhere', globalPi: '~/.pi' } });
-    });
-    return true;
-  }
-  if (message.type === 'PI_EVERYWHERE_ACTIVATE') {
-    const config = { entrypoint: '/pi-everywhere', globalPi: '~/.pi', projectLocalPiDeprecated: true };
-    chrome.storage.local.set({ piEverywhereMode: true, piEverywhereConfig: config });
-    sendResponse({ enabled: true, config });
-    return true;
-  }
-});
-
-console.log('[Agent-Pixel Pi] Background ready — Pi Everywhere mode. Use /pi-everywhere and global ~/.pi; project-local Pi implementation deprecated.');
+console.log('[Agent-Pixel Pi] Background ready — Pi Everywhere dispatch mode.');

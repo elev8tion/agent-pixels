@@ -10,7 +10,7 @@ Primary runtime expectation:
 2. Use the global `~/.pi` instance for models, skills, memory, and `agentic-core`.
 3. Use the extension side panel as a guided project-building surface, not as the owner of a separate Pi implementation.
 
-## Active side-panel surfaces
+## Active flow
 
 The active extension UI is in:
 
@@ -20,15 +20,28 @@ The active extension UI is in:
 - `Agent-Pixel/extension/background.js`
 - `Agent-Pixel/extension/content.js`
 
-Main visible tabs:
+Main visible tabs and Runtime source:
 
-1. **Library** — register or demo toolchests.
-2. **Anatomy** — inspect and compare modules.
-3. **Blueprint** — collect modules for a new project.
-4. **Agents** — expose `/pi-everywhere` agent actions.
-5. **Exports** — preview folder tree/conflicts before project generation.
+1. **Library** — register or demo toolchests; runtime source is extension state plus future folder registration, with agent interpretation through `/pi-everywhere`.
+2. **Anatomy** — inspect and compare modules; runtime source is collected module data plus global `agentic-core` analysis.
+3. **Blueprint** — collect modules for a new project; runtime source is extension blueprint state plus Pi Everywhere recommendations.
+4. **Agents** — expose `/pi-everywhere` agent actions; runtime source is the global `~/.pi` instance after activation.
+5. **Exports** — preview folder tree/conflicts before project generation; runtime source is selected blueprint data and Pi Everywhere-generated guidance.
 
-Advanced/legacy surfaces such as local server connection settings remain only as fallback UI and should not be treated as the primary flow.
+Active runtime rule: new primary features must route to `/pi-everywhere`/global `~/.pi` or local extension state. Do not wire new primary features to legacy localhost endpoints.
+
+## Archived flow
+
+The old flow was extension UI → local Node server → provider/model endpoints → old web UI/project-local Pi glue. That path is archived or fallback-only.
+
+Legacy/fallback surfaces include:
+
+- local server connection settings
+- `/api/providers`, `/api/chat`, `/api/captures`, and `/api/agentic-enable`
+- `http://127.0.0.1:4317` and other localhost model-sync controls
+- old web UI behavior in `Agent-Pixel/archive/`
+
+These can be referenced only for migration, compatibility, or removal work; they are not the current runtime source.
 
 ## User-facing terms
 

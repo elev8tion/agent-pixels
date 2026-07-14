@@ -2,15 +2,103 @@ const $ = (s) => document.querySelector(s);
 const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 let state = {
-  // serverUrl is legacy-only. Agent-Pixel now uses /pi-everywhere and the global ~/.pi instance.
-  serverUrl: 'http://127.0.0.1:4317', // legacy fallback only
-  provider: 'mock',
+  provider: 'pi-everywhere',
   model: null,
   apiKey: null,
   reasoningEffort: 'medium',
   modelList: [],
   selectedPiProvider: null,
-  selectedPiModel: null
+  selectedPiModel: null,
+  piEverywhereEnabled: false,
+};
+
+const ACTION_COPY = {
+  'register-toolchest': {
+    title: 'Register toolchest',
+    prompt: 'Register a toolchest folder for this project. If browser folder access is unavailable, return the exact host-side /pi-everywhere command or next step needed.',
+    next: ['Run assay', 'Inspect anatomy', 'Add core modules to blueprint'],
+  },
+  'load-demo': {
+    title: 'Demo library loaded',
+    localOnly: true,
+    summary: 'A sample toolchest workflow is visible: Library → Anatomy → Blueprint → Exports.',
+    next: ['Compare modules', 'Add demo module to blueprint'],
+  },
+  'compare-modules': {
+    title: 'Compare modules',
+    prompt: 'Compare selected/demo modules for reusability score, contract availability, dependencies, best-fit role, and transplant warnings.',
+    next: ['Pick strongest module', 'Run assay for risk'],
+  },
+  'add-to-blueprint': {
+    title: 'Add to blueprint',
+    prompt: 'Add the selected module to the current blueprint and report conflicts or missing contracts.',
+    next: ['Run composition advisor', 'Preview export'],
+  },
+  'run-advisor': {
+    title: 'Run composition advisor',
+    prompt: 'Inspect selected modules, identify conflicts, and suggest missing pieces for the blueprint.',
+    next: ['Generate context pack', 'Audit blueprint'],
+  },
+  'generate-context': {
+    title: 'Generate context pack',
+    prompt: 'Generate project docs, contracts, setup notes, and handoff prompts from the current blueprint.',
+    next: ['Preview export'],
+  },
+  'export-project': {
+    title: 'Open export preview',
+    prompt: 'Prepare an export preview showing folder tree, selected modules, naming conflicts, missing readmes/contracts, and dependencies.',
+    next: ['Click Generate project'],
+  },
+  'generate-project': {
+    title: 'Generate project',
+    prompt: 'Generate the project from the approved blueprint. If browser-side file writing is unavailable, return a safe host-side command or checklist.',
+    next: ['Open exported folder', 'Copy next prompt', 'Run setup command'],
+  },
+  'open-export': {
+    title: 'Open exported folder',
+    prompt: 'Open or report the exported project folder. If no export exists, say so and provide the next action.',
+    next: ['Generate project'],
+  },
+  'run-assay': {
+    title: 'Run assay',
+    prompt: 'Analyze module quality, reuse potential, contracts, dependencies, and transplant risk.',
+    next: ['Compare modules'],
+  },
+  'preview-export': {
+    title: 'Preview export',
+    prompt: 'Show an export preview for the current blueprint before any file generation.',
+    next: ['Generate project'],
+  },
+  'analyze-toolchest': {
+    title: 'Analyze this toolchest',
+    prompt: 'Use /pi-everywhere to inspect modules, contracts, health, and local path status for the registered toolchest.',
+    next: ['Recommend modules'],
+  },
+  'recommend-modules': {
+    title: 'Recommend modules',
+    prompt: 'Rank modules by fit, reusability score, dependencies, and implementation role.',
+    next: ['Add top modules to blueprint'],
+  },
+  'explain-module': {
+    title: 'Explain this module',
+    prompt: 'Explain the selected module purpose, inputs/outputs, contracts, and transplant difficulty.',
+    next: ['Compare module alternatives'],
+  },
+  'find-missing': {
+    title: 'Find missing pieces',
+    prompt: 'Detect absent contracts, readmes, dependencies, setup docs, and integration glue.',
+    next: ['Generate project docs'],
+  },
+  'generate-docs': {
+    title: 'Generate project docs',
+    prompt: 'Create blueprint context, setup notes, and handoff prompts for the exported project.',
+    next: ['Audit blueprint'],
+  },
+  'audit-blueprint': {
+    title: 'Audit blueprint',
+    prompt: 'Check selected modules for conflicts, missing files, local path issues, and export risk.',
+    next: ['Preview export'],
+  },
 };
 
 function log(msg) {
@@ -18,8 +106,8 @@ function log(msg) {
   out.textContent = typeof msg === 'string' ? msg : JSON.stringify(msg, null, 2);
 }
 
-function successCard(title, summary, next = []) {
-  const lines = [`✅ ${title}`, '', summary];
+function card(icon, title, summary, next = []) {
+  const lines = [`${icon} ${title}`, '', summary];
   if (next.length) lines.push('', 'Next actions:', ...next.map(item => `• ${item}`));
   log(lines.join('\n'));
 }
@@ -31,35 +119,52 @@ function switchWorkspaceTab(name) {
   if (active) active.classList.remove('hidden');
 }
 
-function handleWorkspaceAction(action) {
-  const messages = {
-    'register-toolchest': ['Register toolchest', 'Choose a /forge output folder in the full app flow. Status checks should confirm connected, changed on disk, or missing.', ['Run assay', 'Inspect anatomy', 'Add core modules to blueprint']],
-    'load-demo': ['Demo library loaded', 'A sample toolchest workflow is now visible: Library → Anatomy → Blueprint → Exports.', ['Compare modules', 'Add demo module to blueprint']],
-    'compare-modules': ['Module comparison ready', 'Comparison should show reusability score, contract availability, dependencies, best-fit role, and transplant warnings.', ['Pick strongest module', 'Run assay for risk']],
-    'add-to-blueprint': ['Added to blueprint', 'The selected module was queued for the blueprint. Conflicts and missing contracts will appear in Export Preview.', ['Run composition advisor', 'Preview export']],
-    'run-advisor': ['Composition advisor queued', 'The agent should inspect selected modules, identify conflicts, and suggest missing pieces.', ['Generate context pack', 'Audit blueprint']],
-    'generate-context': ['Context pack planned', 'Project docs, contracts, and setup prompts will be generated from the current blueprint.', ['Preview export']],
-    'export-project': ['Export preview opened', 'Review folder tree, selected modules, naming conflicts, missing readmes, and dependencies before generating.', ['Click Generate project']],
-    'generate-project': ['Project generation ready', 'Final export is gated behind preview so local file changes stay understandable and reversible.', ['Open exported folder', 'Copy next prompt', 'Run setup command']],
-    'open-export': ['Open exported folder', 'No exported folder exists yet. Generate a project first, then this action should open the output path.', ['Generate project']],
-    'run-assay': ['Assay explained', 'Assay analyzes module quality, reuse potential, contracts, dependencies, and transplant risk.', ['Compare modules']],
-    'preview-export': ['Export preview opened', 'Use the Exports tab to review the generated file plan before final export.', ['Generate project']],
-    'analyze-toolchest': ['Agent action: analyze toolchest', 'Uses /pi-everywhere to inspect modules, contracts, health, and local path status.', ['Recommend modules']],
-    'recommend-modules': ['Agent action: recommend modules', 'Ranks modules by fit, reusability score, dependencies, and implementation role.', ['Add top modules to blueprint']],
-    'explain-module': ['Agent action: explain module', 'Explains purpose, inputs/outputs, contracts, and transplant difficulty.', ['Compare module alternatives']],
-    'find-missing': ['Agent action: find missing pieces', 'Detects absent contracts, readmes, dependencies, setup docs, and integration glue.', ['Generate project docs']],
-    'generate-docs': ['Agent action: generate docs', 'Creates blueprint context, setup notes, and handoff prompts for the exported project.', ['Audit blueprint']],
-    'audit-blueprint': ['Agent action: audit blueprint', 'Checks selected modules for conflicts, missing files, local path issues, and export risk.', ['Preview export']]
-  };
-  const [title, summary, next] = messages[action] || ['Action noted', `Action: ${action}`, []];
-  if (action === 'export-project' || action === 'preview-export') switchWorkspaceTab('exports');
-  if (action === 'load-demo') switchWorkspaceTab('anatomy');
-  successCard(title, summary, next);
-}
-
 function setStatus(type = 'idle') {
   const dot = $('#status-dot');
   dot.className = `status-dot ${type}`;
+}
+
+function escapeHtml(s = '') {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function providerLabel(key, sample) {
+  if (sample?.name) {
+    const parts = sample.name.split(/\s+[\u2014\-]\s+/);
+    if (parts.length > 1) return parts[0].trim();
+  }
+  return key;
+}
+
+function shortName(m) {
+  if (m.name) {
+    const parts = m.name.split(/\s+[\u2014\-]\s+/);
+    if (parts.length > 1) return parts.slice(1).join(' — ').trim();
+  }
+  return m.modelId || m.id;
+}
+
+function buildModelListFromPiJson(json) {
+  const out = [];
+  for (const [key, prov] of Object.entries(json.providers || {})) {
+    for (const m of prov.models || []) {
+      out.push({
+        id: `${key}/${m.id}`,
+        name: `${prov.name || key} — ${m.name || m.id}`,
+        providerKey: key,
+        modelId: m.id,
+        source: 'pi-models-json',
+        configured: true,
+        reasoning: !!m.reasoning,
+        thinkingLevels: m.thinkingLevelMap ? Object.keys(m.thinkingLevelMap).filter(l => l !== 'off') : null,
+      });
+    }
+  }
+  return out;
+}
+
+function currentModelEntry() {
+  return state.modelList.find(m => m.id === state.model) || null;
 }
 
 function updateModelChip() {
@@ -70,126 +175,25 @@ function updateModelChip() {
   if (state.model) {
     chip.textContent = state.model.split('/').pop() || state.model;
     chip.style.display = 'block';
-
     if (info) {
       info.classList.remove('hidden');
       $('#active-model-name').textContent = state.model;
-      $('#active-model-meta').textContent = state.reasoningEffort !== 'off' 
-        ? `reasoning: ${state.reasoningEffort}` 
+      $('#active-model-meta').textContent = state.reasoningEffort !== 'off'
+        ? `reasoning: ${state.reasoningEffort}`
         : '';
     }
     if (empty) empty.style.display = 'none';
   } else {
-    chip.textContent = 'No model';
+    chip.textContent = 'Pi Everywhere';
     if (info) info.classList.add('hidden');
     if (empty) empty.style.display = 'block';
   }
 }
 
-// ===== Model loading (Pi Everywhere via global ~/.pi) =====
-// Project-local Pi implementations are deprecated. Legacy serverUrl remains only for archived fallback UI.
-// Entry shape: { id, name, providerKey, modelId, source, configured, reasoning, thinkingLevels }
-function escapeHtml(s = '') {
-  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-}
-function providerLabel(key, sample) {
-  // Prefer the provider half of the display name (before the " — "), else the key.
-  if (sample?.name) {
-    const parts = sample.name.split(/\s+[\u2014\-]\s+/);
-    if (parts.length > 1) return parts[0].trim();
-  }
-  return key;
-}
-function shortName(m) {
-  if (m.name) {
-    const parts = m.name.split(/\s+[\u2014\-]\s+/);
-    if (parts.length > 1) return parts.slice(1).join(' — ').trim();
-  }
-  return m.modelId || m.id;
-}
-function buildModelListFromProviders(raw) {
-  return (raw || []).map(p => {
-    const slash = p.id.includes('/');
-    return {
-      id: p.id,
-      name: p.name || p.id,
-      providerKey: slash ? p.id.split('/')[0] : p.id,
-      modelId: slash ? p.id.split('/').slice(1).join('/') : p.id,
-      source: p.source || 'builtin',
-      configured: !!p.configured,
-      reasoning: false,
-      thinkingLevels: null,
-    };
-  });
-}
-function buildModelListFromPiJson(json) {
-  const out = [];
-  for (const [key, prov] of Object.entries(json.providers || {})) {
-    for (const m of prov.models || []) {
-      out.push({
-        id: `${key}/${m.id}`,
-        name: `${prov.name || key} — ${m.name || m.id}`,
-        providerKey: key,
-        modelId: m.id,
-        source: 'pi',
-        configured: true,
-        reasoning: !!m.reasoning,
-        thinkingLevels: m.thinkingLevelMap ? Object.keys(m.thinkingLevelMap).filter(l => l !== 'off') : null,
-      });
-    }
-  }
-  return out;
-}
-
-async function loadModelsFromServer() {
-  try {
-    const res = await fetch(`${state.serverUrl.replace(/\/$/, '')}/api/providers`, { cache: 'no-store' });
-    if (!res.ok) throw new Error('server returned ' + res.status);
-    const json = await res.json();
-    state.modelList = buildModelListFromProviders(json.providers || []);
-    renderModelPicker();
-    if (!state.model) autoSelectDefault();
-    else { updateModelChip(); renderReasoning(currentModelEntry()); }
-    return true;
-  } catch (e) {
-    state.modelList = [];
-    renderModelPicker();
-    return false;
-  }
-}
-
-function currentModelEntry() {
-  return state.modelList.find(m => m.id === state.model) || null;
-}
-
-function autoSelectDefault() {
-  if (state.model) return;
-  const preferred = state.modelList.find(m => m.id === 'g0dm0d3-glm/glm-5.2');
-  const fallback = state.modelList.find(m => m.configured)
-    || state.modelList[0];
-  const choice = preferred || fallback;
-  if (choice) {
-    selectModel(choice.id, { persist: true, silent: true });
-    log(`${state.modelList.length} models loaded · using ${state.model.split('/').pop()} (tap the chip to change)`);
-  } else {
-    log('No models available. Use /pi-everywhere, then import ~/.pi/agent/models.json if needed.');
-  }
-}
-
-async function persistConfig() {
-  await chrome.storage.sync.set({
-    serverUrl: state.serverUrl,
-    provider: state.provider,
-    model: state.model,
-    apiKey: state.apiKey,
-    reasoningEffort: state.reasoningEffort,
-  });
-}
-
 function renderModelPicker() {
   const container = $('#model-picker');
   if (!state.modelList || !state.modelList.length) {
-    container.innerHTML = `<div class="picker-empty">No models found. Activate /pi-everywhere or import ~/.pi/agent/models.json.</div>`;
+    container.innerHTML = `<div class="picker-empty">No imported models. Use /pi-everywhere, then import ~/.pi/agent/models.json if you want model selection inside the panel.</div>`;
     return;
   }
   const groups = new Map();
@@ -197,18 +201,17 @@ function renderModelPicker() {
     if (!groups.has(m.providerKey)) groups.set(m.providerKey, { sample: m, items: [] });
     groups.get(m.providerKey).items.push(m);
   }
-  const html = [...groups.entries()].map(([key, g]) => `
+  container.innerHTML = [...groups.entries()].map(([key, g]) => `
     <div class="provider-group">
       <div class="provider-name">${escapeHtml(providerLabel(key, g.sample))} <span class="count">${g.items.length}</span></div>
       ${g.items.map(m => `
         <div class="model-option ${state.model === m.id ? 'selected' : ''}" data-id="${escapeHtml(m.id)}" title="${escapeHtml(m.id)}">
           <span>${escapeHtml(shortName(m))}</span>
-          <span class="dot ${m.configured ? 'ok' : 'warn'}" title="${m.configured ? 'configured' : 'needs key'}"></span>
+          <span class="dot ok" title="imported from models.json"></span>
         </div>
       `).join('')}
     </div>
   `).join('');
-  container.innerHTML = html;
   $$('.model-option').forEach(el => el.addEventListener('click', () => selectModel(el.dataset.id)));
 }
 
@@ -219,9 +222,8 @@ function selectModel(id, opts = {}) {
   state.selectedPiProvider = m.providerKey;
   state.selectedPiModel = m.modelId;
   state.model = id;
-  state.provider = id;
+  state.provider = 'pi-everywhere';
   $('#model-id').value = id;
-  $('#provider-select').value = 'custom';
   updateModelChip();
   renderReasoning(m);
   if (opts.persist) persistConfig();
@@ -232,7 +234,7 @@ function renderReasoning(model) {
   const row = $('#reasoning-row');
   const pills = $('#reasoning-pills');
   if (!row || !pills) return;
-  let levels = (model?.thinkingLevels && model.thinkingLevels.length)
+  const levels = (model?.thinkingLevels && model.thinkingLevels.length)
     ? model.thinkingLevels
     : ['low', 'medium', 'high'];
   row.style.display = 'block';
@@ -251,7 +253,6 @@ function renderReasoning(model) {
   });
 }
 
-
 async function importPiModels(file) {
   try {
     const text = await file.text();
@@ -259,52 +260,81 @@ async function importPiModels(file) {
     if (!json.providers) throw new Error('Invalid models.json');
     state.modelList = buildModelListFromPiJson(json);
     renderModelPicker();
-    if (!state.model) autoSelectDefault();
-    log(`Imported ${state.modelList.length} models from file`);
+    if (!state.model && state.modelList[0]) selectModel(state.modelList[0].id, { persist: true, silent: true });
+    log(`Imported ${state.modelList.length} models from ~/.pi models JSON`);
   } catch (e) {
-    log('Failed to import: ' + e.message);
+    log('Failed to import models JSON: ' + e.message);
   }
 }
 
-async function syncFromLocalPi() {
-  const btn = $('#sync-pi-btn');
-  const orig = btn.textContent;
-  btn.textContent = 'Syncing...';
-  btn.disabled = true;
-  try {
-    const res = await fetch('http://localhost:17321/pi-models', { cache: 'no-store' });
-    if (!res.ok) throw new Error('sync server not running');
-    const json = await res.json();
-    state.modelList = buildModelListFromPiJson(json);
-    renderModelPicker();
-    if (!state.model) autoSelectDefault();
-    log(`Synced ${state.modelList.length} models from your .pi`);
-  } catch (e) {
-    log('Legacy sync unavailable. Use /pi-everywhere as the primary project entrypoint, or import ~/.pi/agent/models.json.');
-  } finally {
-    btn.textContent = orig;
-    btn.disabled = false;
+async function persistConfig() {
+  await chrome.storage.sync.set({
+    provider: state.provider,
+    model: state.model,
+    apiKey: state.apiKey,
+    reasoningEffort: state.reasoningEffort,
+  });
+}
+
+async function refreshPiEverywhereStatus() {
+  const res = await chrome.runtime.sendMessage({ type: 'GET_AGENTIC_STATUS' }).catch(() => null);
+  state.piEverywhereEnabled = !!res?.enabled;
+  return res;
+}
+
+async function activatePiEverywhere() {
+  const res = await chrome.runtime.sendMessage({ type: 'PI_EVERYWHERE_ACTIVATE' });
+  state.piEverywhereEnabled = !!res?.enabled;
+  card('✅', 'Pi Everywhere activated', 'This panel is now in Pi Everywhere mode. Browser actions dispatch through the extension contract; model/agent execution still requires the host-side /pi-everywhere bridge.', ['Run Agent', 'Capture Tab']);
+}
+
+async function dispatchPiEverywhere(action, payload = {}) {
+  return chrome.runtime.sendMessage({
+    type: 'PI_EVERYWHERE_DISPATCH',
+    source: 'pi-everywhere',
+    action,
+    payload,
+    model: state.model,
+    provider: state.provider,
+    reasoningEffort: state.reasoningEffort,
+  });
+}
+
+async function handleWorkspaceAction(action) {
+  const spec = ACTION_COPY[action] || { title: 'Action noted', prompt: `Action: ${action}`, next: [] };
+  if (action === 'export-project' || action === 'preview-export') switchWorkspaceTab('exports');
+  if (action === 'load-demo') switchWorkspaceTab('anatomy');
+
+  if (spec.localOnly) {
+    card('✅', spec.title, spec.summary, spec.next);
+    return;
+  }
+
+  setStatus('running');
+  log(`Dispatching ${spec.title} through /pi-everywhere…`);
+  const res = await dispatchPiEverywhere('run_agent', {
+    action,
+    message: spec.prompt,
+    uiContext: { tab: document.querySelector('.tab.active')?.dataset.tab || 'library' },
+  }).catch(e => ({ success: false, error: e.message }));
+  setStatus('idle');
+
+  if (res?.success) {
+    card('✅', spec.title, res.summary || JSON.stringify(res, null, 2), spec.next);
+  } else if (res?.pendingHostIntegration) {
+    card('⚠️', `${spec.title} pending host bridge`, res.error || 'No host-side Pi Everywhere handler is connected yet.', ['Run /pi-everywhere in the project', 'Connect the host bridge', ...spec.next]);
+  } else {
+    card('❌', `${spec.title} failed`, res?.error || JSON.stringify(res, null, 2), spec.next);
   }
 }
 
-// ===== Settings =====
 function openSettings() {
   const modal = $('#settings-modal');
   modal.classList.remove('hidden');
-
-  // Prefill
-  $('#server-url').value = state.serverUrl;
-  $('#provider-select').value = state.provider?.includes('/') ? 'custom' : (state.provider || 'mock');
   $('#model-id').value = state.model || '';
   $('#api-key').value = state.apiKey || '';
-
-  // Always have a model list ready; load from server if we don't have one yet.
-  if (!state.modelList || !state.modelList.length) {
-    loadModelsFromServer().then(ok => { if (!ok) renderModelPicker(); });
-  } else {
-    renderModelPicker();
-    renderReasoning(currentModelEntry());
-  }
+  renderModelPicker();
+  renderReasoning(currentModelEntry());
 }
 
 function closeSettings() {
@@ -312,89 +342,65 @@ function closeSettings() {
 }
 
 async function saveSettings() {
-  const newConfig = {
-    serverUrl: $('#server-url').value.trim() || 'http://127.0.0.1:4317',
-    provider: $('#provider-select').value,
-    model: $('#model-id').value.trim() || null,
-    apiKey: $('#api-key').value.trim() || null,
-    reasoningEffort: state.reasoningEffort || 'medium'
-  };
-
-  // Whatever sits in the model-id field is the full id the server resolves
-  // (e.g. "g0dm0d3-glm/glm-5.2" from the picker, or "mock" for a built-in).
-  // Use it directly for both provider + model so the server never falls back
-  // to the offline mock by mistake.
-  if (newConfig.model) {
-    newConfig.provider = newConfig.model;
-  }
-
-  Object.assign(state, newConfig);
+  state.model = $('#model-id').value.trim() || state.model || null;
+  state.apiKey = $('#api-key').value.trim() || null;
+  state.provider = 'pi-everywhere';
   await persistConfig();
   updateModelChip();
   closeSettings();
-  log('Saved. Model: ' + (state.model || state.provider));
+  log('Saved Pi Everywhere panel settings. Model: ' + (state.model || 'host default'));
 }
 
-// ===== Main Actions =====
 async function runAgent() {
   const prompt = $('#prompt').value.trim();
   if (!prompt) return log('Please enter a task.');
 
   setStatus('running');
-  log('Running agent...');
-
-  const payload = {
-    type: 'AGENT_PIXEL_CHAT',
-    message: prompt,
-    model: state.model,
-    provider: state.provider,
-    reasoningEffort: state.reasoningEffort
-  };
-
-  const res = await chrome.runtime.sendMessage(payload);
+  log('Dispatching agent request through /pi-everywhere…');
+  const res = await dispatchPiEverywhere('run_agent', { message: prompt }).catch(e => ({ success: false, error: e.message }));
   setStatus('idle');
 
-  let text = res?.response?.content || JSON.stringify(res).slice(0, 500);
-  if (res?.executed?.length) text += '\n\nExecuted actions: ' + JSON.stringify(res.executed);
-  log(res?.error ? 'Error: ' + res.error : text);
+  if (res?.success) {
+    log(res.response?.content || res.summary || JSON.stringify(res, null, 2));
+  } else if (res?.pendingHostIntegration) {
+    card('⚠️', 'Agent request pending host bridge', res.error, ['Run /pi-everywhere in this project', 'Connect a host-side bridge for model execution']);
+  } else {
+    log('Error: ' + (res?.error || JSON.stringify(res)));
+  }
 }
 
 async function captureTab() {
   setStatus('running');
-  const res = await chrome.runtime.sendMessage({ type: 'AGENT_PIXEL_CAPTURE_ACTIVE_TAB' });
+  const res = await dispatchPiEverywhere('capture_current_tab').catch(e => ({ success: false, error: e.message }));
   setStatus('idle');
-  log(res.error ? 'Capture failed: ' + res.error : res);
+  log(res?.error ? 'Capture failed: ' + res.error : res);
 }
 
-// ===== Init =====
 async function init() {
-  // Load saved config
-  const saved = await chrome.storage.sync.get(['serverUrl', 'provider', 'model', 'apiKey', 'reasoningEffort']);
-  if (saved.serverUrl) state.serverUrl = saved.serverUrl;
-  if (saved.provider) state.provider = saved.provider;
+  const saved = await chrome.storage.sync.get(['provider', 'model', 'apiKey', 'reasoningEffort']);
+  state.provider = 'pi-everywhere';
   if (saved.model) state.model = saved.model;
   if (saved.apiKey) state.apiKey = saved.apiKey;
   if (saved.reasoningEffort) state.reasoningEffort = saved.reasoningEffort;
 
+  await refreshPiEverywhereStatus();
   updateModelChip();
+  renderModelPicker();
 
-  // Wire UI
   $$('.tab').forEach(btn => btn.addEventListener('click', () => switchWorkspaceTab(btn.dataset.tab)));
   $$('[data-action]').forEach(btn => btn.addEventListener('click', () => handleWorkspaceAction(btn.dataset.action)));
   $('#main-workflow-btn').addEventListener('click', () => {
     switchWorkspaceTab('library');
-    successCard('Guided workflow started', 'Follow Library → Anatomy → Blueprint → Agents → Exports to create a project from toolchests.', ['Register a toolchest', 'Load demo library']);
+    card('✅', 'Guided workflow started', 'Follow Library → Anatomy → Blueprint → Agents → Exports to create a project from toolchests.', ['Register a toolchest', 'Load demo library']);
   });
   $('#load-demo-btn').addEventListener('click', () => handleWorkspaceAction('load-demo'));
 
   $('#settings-btn').addEventListener('click', openSettings);
   $('#close-settings').addEventListener('click', closeSettings);
   $('#save-settings-btn').addEventListener('click', saveSettings);
-
   $('#run-btn').addEventListener('click', runAgent);
   $('#capture-btn').addEventListener('click', captureTab);
-
-  $('#sync-pi-btn').addEventListener('click', syncFromLocalPi);
+  $('#activate-pi-btn')?.addEventListener('click', activatePiEverywhere);
   $('#import-json-btn').addEventListener('click', () => {
     const input = document.createElement('input');
     input.type = 'file';
@@ -404,16 +410,9 @@ async function init() {
     };
     input.click();
   });
-
   $('#change-model-btn').addEventListener('click', openSettings);
-  $('#quick-click').addEventListener('click', () => {
-    chrome.runtime.sendMessage({ type: 'AGENT_PIXEL_EXECUTE_DIRECT', tool: 'click_element', args: { elementId: 'ap-1' } });
-  });
-  $('#quick-scroll').addEventListener('click', () => {
-    chrome.runtime.sendMessage({ type: 'AGENT_PIXEL_EXECUTE_DIRECT', tool: 'scroll_page', args: { direction: 'down' } });
-  });
-
-  // Keyboard
+  $('#quick-click').addEventListener('click', () => dispatchPiEverywhere('execute_browser_action', { tool: 'click_element', args: { elementId: 'ap-1' } }));
+  $('#quick-scroll').addEventListener('click', () => dispatchPiEverywhere('execute_browser_action', { tool: 'scroll_page', args: { direction: 'down' } }));
   $('#prompt').addEventListener('keydown', e => {
     if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
       e.preventDefault();
@@ -421,16 +420,9 @@ async function init() {
     }
   });
 
-  // Legacy auto-load remains for archived fallback only. Primary project operation is /pi-everywhere.
-  await loadModelsFromServer();
-  if (state.modelList.length) {
-    if (state.model) { updateModelChip(); renderReasoning(currentModelEntry()); }
-    log(state.model
-      ? `${state.modelList.length} models ready · using ${state.model.split('/').pop()}`
-      : `${state.modelList.length} models ready. Pick one in Settings →.`);
-  } else {
-    log('Pi Everywhere is the primary entrypoint. Run /pi-everywhere in this project to use global ~/.pi. Project-local Pi/server implementation is deprecated.');
-  }
+  log(state.piEverywhereEnabled
+    ? 'Pi Everywhere mode active. Agent requests dispatch through the extension contract.'
+    : 'Pi Everywhere is the primary entrypoint. Click Activate or run /pi-everywhere in this project.');
 }
 
 init();

@@ -11,6 +11,21 @@ Agent-Pixel is now a **Pi Everywhere-first guided project-building interface**. 
 
 Do not reintroduce project-local Pi bootstrapping as the default. The repo should not depend on local `.pi/agent/skills/*` copies for normal operation.
 
+## Runtime ownership
+
+- `/pi-everywhere` owns activation and connects this repo to the global `~/.pi` runtime.
+- Global `agentic-core` owns agent orchestration, model access, skills, memory, and safety behavior.
+- `Agent-Pixel/extension/` owns UX state, browser context, module selection, previews, and user-visible status.
+- `Agent-Pixel/archive/` and `docs/archive/` own only historical local-server/web-UI reference material.
+- Local server behavior may remain only as removed, legacy, or explicitly fallback-only behavior; it must not be required for the primary workflow.
+
+## Cleanup priorities
+
+1. `extension/background.js` — remove default local-server orchestration and isolate any compatibility path.
+2. `extension/sidepanel.js` — replace localhost provider/model polling and mock action success with one Pi Everywhere-aware dispatch path.
+3. `extension/sidepanel.html` — ensure labels distinguish real Pi Everywhere behavior from fallback or unimplemented UX.
+4. Active docs — keep `/pi-everywhere` and global `~/.pi` as the only runtime contract; keep archived docs historical.
+
 ## Product direction
 
 Agent-Pixel helps users create projects from reusable module libraries/toolchests with less decision fatigue.
