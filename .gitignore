@@ -1,0 +1,9 @@
+# Generated analysis artifacts
+graphify-out/
+**/graphify-out/
+
+# Runtime logs
+*.log
+
+# Local Pi activation markers are intentional only when explicitly committed
+# Project-specific marker committed under Agent-Pixel/.pi-everywhere
