@@ -1,3 +1,5 @@
+> Archived legacy documentation. This describes the pre-/pi-everywhere local server/web UI architecture and is not current implementation guidance. See ../EXTENSION-UI-DATA-MAP.md and ../PI-EVERYWHERE-MIGRATION.md.
+
 # Agent-Pixel Production Readiness Report (Post-Fixes)
 
 **Date**: 2026-07-12  
